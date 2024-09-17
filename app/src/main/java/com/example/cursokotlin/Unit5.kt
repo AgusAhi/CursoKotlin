@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-
 @Composable
 fun Unit5(modifier: Modifier = Modifier, navController: NavHostController) {
     Column(
@@ -32,8 +31,8 @@ fun Unit5(modifier: Modifier = Modifier, navController: NavHostController) {
         Button(onClick = { navController.navigate("Project14") }) {
             Text("Go to Project 14")
         }
-        Button(onClick = { navController.navigate("Unit5") }) {
-            Text("Go to Unit 5")
+        Button(onClick = { navController.navigate("Units") }) {
+            Text("Go Back")
         }
     }
 }

@@ -13,16 +13,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-class XDDDD : ComponentActivity() {
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+
+class Exercise13 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project13()
+            Project13(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project13() {
+fun Project13(modifier: Modifier = Modifier, navController: NavHostController) {
     var grade1 by remember { mutableStateOf("") }
     var grade2 by remember { mutableStateOf("") }
     var grade3 by remember { mutableStateOf("") }

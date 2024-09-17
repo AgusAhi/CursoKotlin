@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit5
+package com.example.cursokotlin.Unit6
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,17 +16,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise10 : ComponentActivity() {
+class Exercise14 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project10(modifier = Modifier, navController = rememberNavController())
+            Project15(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project10(modifier: Modifier = Modifier, navController: NavHostController) {
-    var salary by remember { mutableStateOf("") }
+fun Project15(modifier: Modifier = Modifier, navController: NavHostController) {
+    var number by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
 
     Column(
@@ -34,9 +34,9 @@ fun Project10(modifier: Modifier = Modifier, navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         OutlinedTextField(
-            value = salary,
-            onValueChange = { salary = it },
-            label = { Text("Enter the salary of the employee") },
+            value = number,
+            onValueChange = { number = it },
+            label = { Text("Enter a value between 1 and 99") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -44,13 +44,11 @@ fun Project10(modifier: Modifier = Modifier, navController: NavHostController) {
         )
         Button(
             onClick = {
-
-                val salaryValue = salary.toDoubleOrNull()
-                if (salaryValue != null) {
-                    result = if (salaryValue > 3000.0) "Must pay taxes" else "No need to pay taxes"
-                } else {
-                    result = "Invalid salary"
-                }
+                var n1 = number.toInt()
+                if (n1 < 10)
+                    result = "It has one digit"
+                else if (n1 < 100)
+                    result = "It has two digits"
             },
             modifier = Modifier.padding(10.dp)
         ) {

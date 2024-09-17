@@ -1,4 +1,5 @@
 package com.example.cursokotlin.Unit5
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,16 +13,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-class XDD : ComponentActivity() {
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+
+class Exercise11 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project11()
+            Project11(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project11() {
+fun Project11(modifier: Modifier = Modifier, navController: NavHostController) {
     var value1 by remember { mutableStateOf("") }
     var value2 by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
