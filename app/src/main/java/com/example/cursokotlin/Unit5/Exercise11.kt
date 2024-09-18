@@ -62,7 +62,7 @@ fun Project11(modifier: Modifier = Modifier, navController: NavHostController) {
             },
             modifier = Modifier.padding(10.dp)
         ) {
-            Text(text = "Confirmar")
+            Text(text = "Check")
         }
         Text(
             text = result,

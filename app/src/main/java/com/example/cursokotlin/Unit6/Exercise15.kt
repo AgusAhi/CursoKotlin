@@ -26,17 +26,27 @@ class Exercise14 : ComponentActivity() {
 }
 @Composable
 fun Project15(modifier: Modifier = Modifier, navController: NavHostController) {
-    var number by remember { mutableStateOf("") }
-    var result by remember { mutableStateOf("") }
+    var value1 by remember { mutableStateOf("") }
+    var value2 by remember { mutableStateOf("") }
+    var bigger by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
         OutlinedTextField(
-            value = number,
-            onValueChange = { number = it },
-            label = { Text("Enter a value between 1 and 99") },
+            value = value1,
+            onValueChange = { value1 = it },
+            label = { Text("Enter the first value") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true,
+        )
+        OutlinedTextField(
+            value = value2,
+            onValueChange = { value2 = it },
+            label = { Text("Enter the second value") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -44,18 +54,16 @@ fun Project15(modifier: Modifier = Modifier, navController: NavHostController) {
         )
         Button(
             onClick = {
-                var n1 = number.toInt()
-                if (n1 < 10)
-                    result = "It has one digit"
-                else if (n1 < 100)
-                    result = "It has two digits"
+                var n1 = value1.toInt()
+                var n2 = value2.toInt()
+                bigger = if (n1 > n2) n1.toString() else n2.toString()
             },
             modifier = Modifier.padding(10.dp)
         ) {
-            Text(text = "Confirmar")
+            Text(text = "Check")
         }
         Text(
-            text = result,
+            text = "The bigger one between ($value1) and ($value2) is $bigger",
             modifier = Modifier.padding(10.dp)
         )
     }

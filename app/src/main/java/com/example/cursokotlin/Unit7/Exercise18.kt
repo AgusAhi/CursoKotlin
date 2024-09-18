@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit5
+package com.example.cursokotlin.Unit7
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,18 +16,19 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise12 : ComponentActivity() {
+class Exercise18 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project12(modifier = Modifier, navController = rememberNavController())
+            Project18(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project12(modifier: Modifier = Modifier, navController: NavHostController) {
-    var value1 by remember { mutableStateOf("") }
-    var value2 by remember { mutableStateOf("") }
+fun Project18(modifier: Modifier = Modifier, navController: NavHostController) {
+    var grade1 by remember { mutableStateOf("") }
+    var grade2 by remember { mutableStateOf("") }
+    var grade3 by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
 
     Column(
@@ -35,18 +36,27 @@ fun Project12(modifier: Modifier = Modifier, navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         OutlinedTextField(
-            value = value1,
-            onValueChange = { value1 = it },
-            label = { Text("Enter the first value") },
+            value = grade1,
+            onValueChange = { grade1 = it },
+            label = { Text("Enter first grade") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
             singleLine = true,
         )
         OutlinedTextField(
-            value = value2,
-            onValueChange = { value2 = it },
-            label = { Text("Enter the second value") },
+            value = grade2,
+            onValueChange = { grade2 = it },
+            label = { Text("Enter second grade") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true,
+        )
+        OutlinedTextField(
+            value = grade3,
+            onValueChange = { grade3 = it },
+            label = { Text("Enter third grade") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -54,26 +64,20 @@ fun Project12(modifier: Modifier = Modifier, navController: NavHostController) {
         )
         Button(
             onClick = {
-                var n1 = value1.toInt()
-                var n2 = value2.toInt()
-                if (n1 < n2) {
-                    val sum = n1 + n2
-                    val difference = n1 - n2
-                    result = "The sum of the two values is: $sum" +
-                            "\n" + "The difference of the two values is: $difference"
-                } else {
-                    val product = n1 * n2
-                    val division = n1 / n2
-                    result = "The product of the two values is: $product" +
-                            "\n" + "The division of the two values is: $division"
-                }
+                var n1 = (grade1.toInt() + grade2.toInt() + grade3.toInt()) / 3
+                if (n1 >= 7)
+                    result = "Passed"
+                else if (n1 >= 4)
+                    result = "Maybe"
+                else
+                    result = "Failed"
             },
             modifier = Modifier.padding(10.dp)
         ) {
             Text(text = "Check")
         }
         Text(
-            text = result,
+            text = "$result",
             modifier = Modifier.padding(10.dp)
         )
     }

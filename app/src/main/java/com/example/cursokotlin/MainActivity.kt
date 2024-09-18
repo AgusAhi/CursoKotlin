@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -38,6 +37,10 @@ import com.example.cursokotlin.Unit5.Project12
 import com.example.cursokotlin.Unit5.Project13
 import com.example.cursokotlin.Unit5.Project14
 import com.example.cursokotlin.Unit6.Project15
+import com.example.cursokotlin.Unit6.Project16
+import com.example.cursokotlin.Unit6.Project17
+import com.example.cursokotlin.Unit7.Project18
+import com.example.cursokotlin.Unit7.Project19
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 class MainActivity : ComponentActivity() {
@@ -94,8 +97,23 @@ class MainActivity : ComponentActivity() {
                         composable("Project15") {
                             Project15(navController = navController)
                         }
+                        composable("Project16") {
+                            Project16(navController = navController)
+                        }
+                        composable("Project17") {
+                            Project17(navController = navController)
+                        }
 
-
+                        // Navegación para Unit7 y sus ejercicios
+                        composable("Unit7") {
+                            Unit7(navController = navController)
+                        }
+                        composable("Project18") {
+                            Project18(navController = navController)
+                        }
+                        composable("Project19") {
+                            Project19(navController = navController)
+                        }
                     }
                 }
             }
@@ -144,7 +162,6 @@ fun menuPage(navController: NavController, modifier: Modifier = Modifier) {
             Text(text = "Ir a Unit 6")
         }
 
-        // Puedes añadir más botones aquí para otras unidades o funciones
     }
 }
 

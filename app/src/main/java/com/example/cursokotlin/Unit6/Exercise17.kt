@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit5
+package com.example.cursokotlin.Unit6
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,19 +16,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise13 : ComponentActivity() {
+class Exercise17 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project13(modifier = Modifier, navController = rememberNavController())
+            Project17(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project13(modifier: Modifier = Modifier, navController: NavHostController) {
-    var grade1 by remember { mutableStateOf("") }
-    var grade2 by remember { mutableStateOf("") }
-    var grade3 by remember { mutableStateOf("") }
+fun Project17(modifier: Modifier = Modifier, navController: NavHostController) {
+    var value by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
 
     Column(
@@ -36,27 +34,9 @@ fun Project13(modifier: Modifier = Modifier, navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         OutlinedTextField(
-            value = grade1,
-            onValueChange = { grade1 = it },
-            label = { Text("Enter first grade") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true,
-        )
-        OutlinedTextField(
-            value = grade2,
-            onValueChange = { grade2 = it },
-            label = { Text("Enter second grade") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true,
-        )
-        OutlinedTextField(
-            value = grade3,
-            onValueChange = { grade3 = it },
-            label = { Text("Enter third grade") },
+            value = value,
+            onValueChange = { value = it },
+            label = { Text("Enter a value between 1 and 99") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -64,17 +44,15 @@ fun Project13(modifier: Modifier = Modifier, navController: NavHostController) {
         )
         Button(
             onClick = {
-                var n1 = grade1.toInt()
-                var n2 = grade2.toInt()
-                var n3 = grade3.toInt()
-                result = ((n1 + n2 + n3) / 3).toString()
+                var n1 = value.toInt()
+                result = if (n1 < 10) 1.toString() else 2.toString()
             },
             modifier = Modifier.padding(10.dp)
         ) {
             Text(text = "Check")
         }
         Text(
-            text = result,
+            text = "The number has: $result digits",
             modifier = Modifier.padding(10.dp)
         )
     }
