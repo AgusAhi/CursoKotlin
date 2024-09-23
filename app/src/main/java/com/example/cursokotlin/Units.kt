@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -14,7 +15,8 @@ fun Units(modifier: Modifier = Modifier, navController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Button(onClick = { navController.navigate("Unit5") }) {
             Text("Go to Unit 5")
@@ -24,6 +26,12 @@ fun Units(modifier: Modifier = Modifier, navController: NavHostController) {
         }
         Button(onClick = { navController.navigate("Unit7") }) {
             Text("Go to Unit 7")
+        }
+        Button(onClick = { navController.navigate("Unit8") }) {
+            Text("Go to Unit 8")
+        }
+        Button(onClick = { navController.navigate("Unit9") }) {
+            Text("Go to Unit 9")
         }
     }
 }

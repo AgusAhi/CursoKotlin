@@ -20,28 +20,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.cursokotlin.Unit5.Project10
-import com.example.cursokotlin.Unit5.Project11
-import com.example.cursokotlin.Unit5.Project12
-import com.example.cursokotlin.Unit5.Project13
-import com.example.cursokotlin.Unit5.Project14
-import com.example.cursokotlin.Unit6.Project15
-import com.example.cursokotlin.Unit6.Project16
-import com.example.cursokotlin.Unit6.Project17
-import com.example.cursokotlin.Unit7.Project18
-import com.example.cursokotlin.Unit7.Project19
+import com.example.cursokotlin.Unit5.*
+import com.example.cursokotlin.Unit6.*
+import com.example.cursokotlin.Unit7.*
+import com.example.cursokotlin.Unit8.*
+import com.example.cursokotlin.Unit9.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,6 +107,55 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("Project19") {
                             Project19(navController = navController)
+                        }
+                        composable("Project20") {
+                            Project20(navController = navController)
+                        }
+                        composable("Project21") {
+                            Project21(navController = navController)
+                        }
+                        composable("Project22") {
+                            Project22(navController = navController)
+                        }
+
+                        // Navegación para Unit8 y sus ejercicios
+                        composable("Unit8") {
+                            Unit8(navController = navController)
+                        }
+                        composable("Project23") {
+                            Project23(navController = navController)
+                        }
+                        composable ("Project24") {
+                            Project24(navController = navController)
+                        }
+                        composable ("Project25") {
+                            Project25(navController = navController)
+                        }
+                        composable ("Project26") {
+                            Project26(navController = navController)
+                        }
+                        composable ("Project27") {
+                            Project27(navController = navController)
+                        }
+                        composable ("Project28") {
+                            Project28(navController = navController)
+                        }
+                        composable ("Project29") {
+                            Project29(navController = navController)
+                        }
+                        composable ("Project30") {
+                            Project30(navController = navController)
+                        }
+
+                        // Navegación para Unit9 y sus ejercicios
+                        composable("Unit9") {
+                            Unit9(navController = navController)
+                        }
+                        composable("Project31") {
+                            Project31(navController = navController)
+                        }
+                        composable("Project32") {
+                            Project32(navController = navController)
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit7
+package com.example.cursokotlin.Unit8
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,17 +16,18 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise20 : ComponentActivity() {
+class Exercise29 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project20(modifier = Modifier, navController = rememberNavController())
+            Project29(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project20(modifier: Modifier = Modifier, navController: NavHostController) {
-    var number by remember { mutableStateOf("") }
+fun Project29(modifier: Modifier = Modifier, navController: NavHostController) {
+    var number1 by remember { mutableStateOf("") }
+    var number2 by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
 
     Column(
@@ -34,9 +35,18 @@ fun Project20(modifier: Modifier = Modifier, navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         OutlinedTextField(
-            value = number,
-            onValueChange = { number = it },
-            label = { Text("Enter an integer number") },
+            value = number1,
+            onValueChange = { number1 = it },
+            label = { Text("Enter coord x") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true,
+        )
+        OutlinedTextField(
+            value = number2,
+            onValueChange = { number2 = it },
+            label = { Text("Enter coord y") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -44,15 +54,21 @@ fun Project20(modifier: Modifier = Modifier, navController: NavHostController) {
         )
         Button(
             onClick = {
-                val n = number.toIntOrNull()
-                if (n != null) {
-                    result = if (n == 0)
-                        "The number is zero"
-                    else if (n > 0)
-                        "The number is positive"
+                var x = number1.toInt()
+                var y = number2.toInt()
+                result = if (x > 0 && y > 0)
+                    "Its on the first quadrant"
+                else
+                    if (x < 0 && y > 0)
+                        "Its on the second quadrant"
                     else
-                        "The number is negative"
-                }
+                        if (x < 0 && y < 0)
+                            "Its on the third quadrant"
+                        else
+                            if (x > 0 && y < 0)
+                                "Its on the fourth quadrant"
+                            else
+                                "Its on the origin"
             },
             modifier = Modifier.padding(10.dp)
         ) {

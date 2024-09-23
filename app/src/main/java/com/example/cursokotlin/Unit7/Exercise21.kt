@@ -16,16 +16,16 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise20 : ComponentActivity() {
+class Exercise21 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project20(modifier = Modifier, navController = rememberNavController())
+            Project21(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 @Composable
-fun Project20(modifier: Modifier = Modifier, navController: NavHostController) {
+fun Project21(modifier: Modifier = Modifier, navController: NavHostController) {
     var number by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
 
@@ -36,7 +36,7 @@ fun Project20(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = number,
             onValueChange = { number = it },
-            label = { Text("Enter an integer number") },
+            label = { Text("Enter an integer number with 1, 2 or 3 digits") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -46,12 +46,14 @@ fun Project20(modifier: Modifier = Modifier, navController: NavHostController) {
             onClick = {
                 val n = number.toIntOrNull()
                 if (n != null) {
-                    result = if (n == 0)
-                        "The number is zero"
-                    else if (n > 0)
-                        "The number is positive"
+                    result = if (n < 10)
+                        "The number has 1 digit"
+                    else if (n < 100)
+                        "The number has 2 digits"
+                    else if (n < 1000)
+                        "The number has 3 digits"
                     else
-                        "The number is negative"
+                        "Error"
                 }
             },
             modifier = Modifier.padding(10.dp)
