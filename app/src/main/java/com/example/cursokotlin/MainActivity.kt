@@ -34,7 +34,6 @@ import com.example.cursokotlin.Unit6.*
 import com.example.cursokotlin.Unit7.*
 import com.example.cursokotlin.Unit8.*
 import com.example.cursokotlin.Unit9.*
-import com.example.cursokotlin.Unit10.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 
@@ -101,8 +100,9 @@ class MainActivity : ComponentActivity() {
                         composable("Project40") { Project40(navController = navController) }
                         composable("Project41") { Project41(navController = navController) }
 
-                        composable("Unit10") { Unit9(navController = navController) }
+                        composable("Unit10") { Unit10(navController = navController) }
                         composable("Project42") { Project42(navController = navController) }
+                        composable("Project43") { Project43(navController = navController) }
                     }
                 }
             }
