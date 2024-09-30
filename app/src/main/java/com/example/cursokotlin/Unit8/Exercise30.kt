@@ -72,14 +72,14 @@ fun Project30(modifier: Modifier = Modifier, navController: NavHostController) {
                 var greater = number4.toIntOrNull()
                 var less = number5.toIntOrNull()
 
-                if (n1 == null || n2 == null || n3 == null || greater == null || less == null) {
+                if (n1 == null || n2 == null || n3 == null) {
                     result = "Invalid input"
                     return@Button
                 }
 
-                greater = if (n1 < n2 && n1 < n3) n1 else if (n2 < n3) n2 else n3
-                less = if (n1 > n2 && n1 > n3) n1 else if (n2 > n3) n2 else n3
-                result = "$greater $less"
+                less = if (n1 < n2 && n1 < n3) n1 else if (n2 < n3) n2 else n3
+                greater = if (n1 > n2 && n1 > n3) n1 else if (n2 > n3) n2 else n3
+                result = "greater: $greater less: $less"
             },
             modifier = Modifier.padding(10.dp)
         ) {

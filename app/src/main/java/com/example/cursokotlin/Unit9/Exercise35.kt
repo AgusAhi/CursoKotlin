@@ -16,19 +16,23 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise32 : ComponentActivity() {
+class Exercise35 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project32(modifier = Modifier, navController = rememberNavController())
+            Project35(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 
 @Composable
-fun Project32(modifier: Modifier = Modifier, navController: NavHostController) {
-    var number1 by remember { mutableStateOf("") }
-    var result by remember { mutableStateOf("") }
+fun Project35(modifier: Modifier = Modifier, navController: NavHostController) {
+    var x by remember { mutableStateOf(0) }
+    var grade by remember { mutableStateOf("") }
+    var counter1 by remember { mutableStateOf(0) }
+    var counter2 by remember { mutableStateOf(0) }
+    var result1 by remember { mutableStateOf(0) }
+    var result2 by remember { mutableStateOf(0) }
     val scrollState = rememberScrollState()
 
     Column(
@@ -40,33 +44,42 @@ fun Project32(modifier: Modifier = Modifier, navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         OutlinedTextField(
-            value = number1,
-            onValueChange = { number1 = it },
-            label = { Text("Enter a number") },
+            value = grade,
+            onValueChange = { grade = it },
+            label = { Text("Enter grade") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
             singleLine = true,
         )
-        Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             onClick = {
-                var x = number1.toInt()
-                var output = ""
-                var y = 1
-                while (y <= x) {
-                    output += "$y\n"
-                    y += 1
+                val g = grade.toInt()
+                if (g >= 7) {
+                    counter1 += 1
+                } else {
+                    counter2 += 1
                 }
-                result = output
+
+                if (counter1 + counter2 == 10) {
+                    result1 = counter1
+                    result2 = counter2
+                }
+
+                x += 1
+                grade = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
-            Text(text = "Show numbers")
+            Text(text = "Submit grade $x/10")
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
         Text(
-            text = result,
+            text = "The number of grades above 7 is: $result1 " +
+                    "and the number of grades below 7 is: $result2",
             modifier = Modifier.padding(10.dp)
         )
     }

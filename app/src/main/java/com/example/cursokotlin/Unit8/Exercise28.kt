@@ -71,7 +71,7 @@ fun Project28(modifier: Modifier = Modifier, navController: NavHostController) {
                 result = if (n1 < 10 || n2 < 10 || n3 < 10)
                     "Any of the numbers is less than 10"
                 else
-                    "error"
+                    "All of the numbers are greater than or equal to 10"
             },
             modifier = Modifier.padding(10.dp)
         ) {

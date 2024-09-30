@@ -33,5 +33,8 @@ fun Units(modifier: Modifier = Modifier, navController: NavHostController) {
         Button(onClick = { navController.navigate("Unit9") }) {
             Text("Go to Unit 9")
         }
+        Button(onClick = { navController.navigate("Unit10") }) {
+            Text("Go to Unit 10")
+        }
     }
 }

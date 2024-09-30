@@ -77,7 +77,7 @@ fun Project26(modifier: Modifier = Modifier, navController: NavHostController) {
             Text(text = "Check")
         }
         Text(
-            text = "$result",
+            text = "The cube is $result",
             modifier = Modifier.padding(10.dp)
         )
     }

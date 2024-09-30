@@ -34,6 +34,7 @@ import com.example.cursokotlin.Unit6.*
 import com.example.cursokotlin.Unit7.*
 import com.example.cursokotlin.Unit8.*
 import com.example.cursokotlin.Unit9.*
+import com.example.cursokotlin.Unit10.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 
@@ -46,7 +47,6 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val navController = rememberNavController()
 
-                    // Un solo NavHost para todas las rutas
                     NavHost(
                         navController = navController,
                         startDestination = "Units", // Define una ruta inicial
@@ -54,109 +54,55 @@ class MainActivity : ComponentActivity() {
                     ) {
 
                         /*
-                        composable("MenuPage") {
-                            menuPage(navController = navController)
-                        }
+                        composable("MenuPage") { menuPage(navController = navController) }
                         */
 
-                        // Navegación para la pantalla de Units
-                        composable("Units") {
-                            Units(navController = navController)
-                        }
+                        composable("Units") { Units(navController = navController) }
 
-                        // Navegación para Unit5 y sus ejercicios
-                        composable("Unit5") {
-                            Unit5(navController = navController)
-                        }
-                        composable("Project10") {
-                            Project10(navController = navController)
-                        }
-                        composable("Project11") {
-                            Project11(navController = navController)
-                        }
-                        composable("Project12") {
-                            Project12(navController = navController)
-                        }
-                        composable("Project13") {
-                            Project13(navController = navController)
-                        }
-                        composable("Project14") {
-                            Project14(navController = navController)
-                        }
+                        composable("Unit5") { Unit5(navController = navController) }
+                        composable("Project10") { Project10(navController = navController) }
+                        composable("Project11") { Project11(navController = navController) }
+                        composable("Project12") { Project12(navController = navController) }
+                        composable("Project13") { Project13(navController = navController) }
+                        composable("Project14") { Project14(navController = navController) }
 
-                        // Navegación para Unit6 y sus ejercicios
-                        composable("Unit6") {
-                            Unit6(navController = navController)
-                        }
-                        composable("Project15") {
-                            Project15(navController = navController)
-                        }
-                        composable("Project16") {
-                            Project16(navController = navController)
-                        }
-                        composable("Project17") {
-                            Project17(navController = navController)
-                        }
+                        composable("Unit6") { Unit6(navController = navController) }
+                        composable("Project15") { Project15(navController = navController) }
+                        composable("Project16") { Project16(navController = navController) }
+                        composable("Project17") { Project17(navController = navController) }
 
-                        // Navegación para Unit7 y sus ejercicios
-                        composable("Unit7") {
-                            Unit7(navController = navController)
-                        }
-                        composable("Project18") {
-                            Project18(navController = navController)
-                        }
-                        composable("Project19") {
-                            Project19(navController = navController)
-                        }
-                        composable("Project20") {
-                            Project20(navController = navController)
-                        }
-                        composable("Project21") {
-                            Project21(navController = navController)
-                        }
-                        composable("Project22") {
-                            Project22(navController = navController)
-                        }
+                        composable("Unit7") { Unit7(navController = navController) }
+                        composable("Project18") { Project18(navController = navController) }
+                        composable("Project19") { Project19(navController = navController) }
+                        composable("Project20") { Project20(navController = navController) }
+                        composable("Project21") { Project21(navController = navController) }
+                        composable("Project22") { Project22(navController = navController) }
 
-                        // Navegación para Unit8 y sus ejercicios
-                        composable("Unit8") {
-                            Unit8(navController = navController)
-                        }
-                        composable("Project23") {
-                            Project23(navController = navController)
-                        }
-                        composable ("Project24") {
-                            Project24(navController = navController)
-                        }
-                        composable ("Project25") {
-                            Project25(navController = navController)
-                        }
-                        composable ("Project26") {
-                            Project26(navController = navController)
-                        }
-                        composable ("Project27") {
-                            Project27(navController = navController)
-                        }
-                        composable ("Project28") {
-                            Project28(navController = navController)
-                        }
-                        composable ("Project29") {
-                            Project29(navController = navController)
-                        }
-                        composable ("Project30") {
-                            Project30(navController = navController)
-                        }
+                        composable("Unit8") { Unit8(navController = navController) }
+                        composable("Project23") { Project23(navController = navController) }
+                        composable ("Project24") { Project24(navController = navController) }
+                        composable ("Project25") { Project25(navController = navController) }
+                        composable ("Project26") { Project26(navController = navController) }
+                        composable ("Project27") { Project27(navController = navController) }
+                        composable ("Project28") { Project28(navController = navController) }
+                        composable ("Project29") { Project29(navController = navController) }
+                        composable ("Project30") { Project30(navController = navController) }
 
-                        // Navegación para Unit9 y sus ejercicios
-                        composable("Unit9") {
-                            Unit9(navController = navController)
-                        }
-                        composable("Project31") {
-                            Project31(navController = navController)
-                        }
-                        composable("Project32") {
-                            Project32(navController = navController)
-                        }
+                        composable("Unit9") { Unit9(navController = navController) }
+                        composable("Project31") { Project31(navController = navController) }
+                        composable("Project32") { Project32(navController = navController) }
+                        composable("Project33") { Project33(navController = navController) }
+                        composable("Project34") { Project34(navController = navController) }
+                        composable("Project35") { Project35(navController = navController) }
+                        composable("Project36") { Project36(navController = navController) }
+                        composable("Project37") { Project37(navController = navController) }
+                        composable("Project38") { Project38(navController = navController) }
+                        composable("Project39") { Project39(navController = navController) }
+                        composable("Project40") { Project40(navController = navController) }
+                        composable("Project41") { Project41(navController = navController) }
+
+                        composable("Unit10") { Unit9(navController = navController) }
+                        composable("Project42") { Project42(navController = navController) }
                     }
                 }
             }

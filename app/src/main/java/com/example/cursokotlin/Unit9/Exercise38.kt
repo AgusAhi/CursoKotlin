@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,18 +16,20 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise31 : ComponentActivity() {
+class Exercise38 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project31(modifier = Modifier, navController = rememberNavController())
+            Project38(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 
 @Composable
-fun Project31(modifier: Modifier = Modifier, navController: NavHostController) {
-    var result by remember { mutableStateOf("") }
+fun Project38(modifier: Modifier = Modifier, navController: NavHostController) {
+    var x by remember { mutableStateOf(0) }
+    var term by remember { mutableStateOf(11) }
+    var result1 by remember { mutableStateOf(0) }
     val scrollState = rememberScrollState()
 
     Column(
@@ -37,26 +40,24 @@ fun Project31(modifier: Modifier = Modifier, navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = result,
-            modifier = Modifier.padding(10.dp)
-        )
-
-        Spacer(modifier = Modifier.height(20.dp))
-
         Button(
             onClick = {
-                var output = ""
-                var x = 1
-                while (x <= 100) {
-                    output += "$x\n"
+                if (x <= 25) {
+                    term += 11
                     x += 1
                 }
-                result = output
+                result1 = term
             },
             modifier = Modifier.padding(10.dp)
         ) {
-            Text(text = "Show numbers 1 to 100")
+            Text(text = "Next term")
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "The $x" + "º term is $result1",
+            modifier = Modifier.padding(10.dp)
+        )
     }
 }

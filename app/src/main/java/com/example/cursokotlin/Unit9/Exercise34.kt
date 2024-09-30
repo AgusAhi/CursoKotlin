@@ -16,19 +16,23 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Exercise32 : ComponentActivity() {
+class Exercise34 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project32(modifier = Modifier, navController = rememberNavController())
+            Project34(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 
 @Composable
-fun Project32(modifier: Modifier = Modifier, navController: NavHostController) {
+fun Project34(modifier: Modifier = Modifier, navController: NavHostController) {
     var number1 by remember { mutableStateOf("") }
+    var acc by remember { mutableStateOf(0) }
+    var large by remember { mutableStateOf("") }
+    var quant by remember { mutableStateOf(0) }
     var result by remember { mutableStateOf("") }
+    var result2 by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
     Column(
@@ -42,31 +46,59 @@ fun Project32(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = number1,
             onValueChange = { number1 = it },
-            label = { Text("Enter a number") },
+            label = { Text("How many pieces its gona make") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
             singleLine = true,
         )
+
+        Button(
+            onClick = {
+                val num = number1.toIntOrNull()
+                if (num != null) {
+                    result = "$num"
+                    number1 = ""
+                }
+            },
+            modifier = Modifier.padding(10.dp)
+        ) {
+            Text(text = "Number Added: $result")
+        }
+
+        OutlinedTextField(
+            value = large,
+            onValueChange = { large = it },
+            label = { Text("Enter the large of the piece") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true,
+        )
+
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             onClick = {
-                var x = number1.toInt()
-                var output = ""
-                var y = 1
-                while (y <= x) {
-                    output += "$y\n"
-                    y += 1
+                val l = large.toFloatOrNull()
+                if (l != null) {
+                    if (l >= 1.20f && l <= 1.30f) {
+                        quant += 1
+                        acc += 1
+                        large = ""
+                    }
                 }
-                result = output
+                result2 = "$quant"
             },
             modifier = Modifier.padding(10.dp)
         ) {
-            Text(text = "Show numbers")
+            Text(text = "Check")
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
         Text(
-            text = result,
+            text = "The number of fit pieces is: $result2",
             modifier = Modifier.padding(10.dp)
         )
     }
