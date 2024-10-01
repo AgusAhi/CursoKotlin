@@ -66,5 +66,6 @@ fun Project42(modifier: Modifier = Modifier, navController: NavHostController) {
             text = "$result",
             modifier = Modifier.padding(10.dp)
         )
+
     }
 }

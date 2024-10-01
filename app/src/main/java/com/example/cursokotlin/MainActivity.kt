@@ -52,12 +52,10 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     ) {
 
-                        /*
-                        composable("MenuPage") { menuPage(navController = navController) }
-                        */
-
+                        // Units page
                         composable("Units") { Units(navController = navController) }
 
+                        // Unit 5
                         composable("Unit5") { Unit5(navController = navController) }
                         composable("Project10") { Project10(navController = navController) }
                         composable("Project11") { Project11(navController = navController) }
@@ -65,11 +63,13 @@ class MainActivity : ComponentActivity() {
                         composable("Project13") { Project13(navController = navController) }
                         composable("Project14") { Project14(navController = navController) }
 
+                        // Unit 6
                         composable("Unit6") { Unit6(navController = navController) }
                         composable("Project15") { Project15(navController = navController) }
                         composable("Project16") { Project16(navController = navController) }
                         composable("Project17") { Project17(navController = navController) }
 
+                        // Unit 7
                         composable("Unit7") { Unit7(navController = navController) }
                         composable("Project18") { Project18(navController = navController) }
                         composable("Project19") { Project19(navController = navController) }
@@ -77,6 +77,7 @@ class MainActivity : ComponentActivity() {
                         composable("Project21") { Project21(navController = navController) }
                         composable("Project22") { Project22(navController = navController) }
 
+                        // Unit 8
                         composable("Unit8") { Unit8(navController = navController) }
                         composable("Project23") { Project23(navController = navController) }
                         composable ("Project24") { Project24(navController = navController) }
@@ -87,6 +88,7 @@ class MainActivity : ComponentActivity() {
                         composable ("Project29") { Project29(navController = navController) }
                         composable ("Project30") { Project30(navController = navController) }
 
+                        // Unit 9
                         composable("Unit9") { Unit9(navController = navController) }
                         composable("Project31") { Project31(navController = navController) }
                         composable("Project32") { Project32(navController = navController) }
@@ -100,57 +102,19 @@ class MainActivity : ComponentActivity() {
                         composable("Project40") { Project40(navController = navController) }
                         composable("Project41") { Project41(navController = navController) }
 
+                        // Unit 10
                         composable("Unit10") { Unit10(navController = navController) }
                         composable("Project42") { Project42(navController = navController) }
                         composable("Project43") { Project43(navController = navController) }
+                        composable("Project44") { Project44(navController = navController) }
+                        composable("Project45") { Project45(navController = navController) }
+                        composable("Project46") { Project46(navController = navController) }
+
+                        // Unit 11
+                        composable("Unit11") { Unit10(navController = navController) }
                     }
                 }
             }
         }
     }
 }
-
-@Composable
-fun menuPage(navController: NavController, modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(color = Color(0xFFFFCDD2)) // Fondo de la página
-            .wrapContentSize(Alignment.Center), // Alineación central del contenido
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        // Texto del título
-        Text(
-            text = "Curso Kotlin",
-            modifier = modifier
-                .fillMaxWidth()
-                .wrapContentSize(Alignment.Center),
-            color = Color(0xFFB71C1C),
-            fontStyle = FontStyle.Italic,
-            fontWeight = FontWeight.Bold,
-            fontSize = 40.sp,
-            textAlign = TextAlign.Center
-        )
-
-        Spacer(modifier = Modifier.height(24.dp)) // Espacio entre el título y los botones
-
-        // Botón para ir a Unit 5
-        Button(
-            onClick = { navController.navigate("Unit5") },
-            modifier = Modifier.padding(8.dp) // Padding entre los botones
-        ) {
-            Text(text = "Ir a Unit 5")
-        }
-
-        // Botón para ir a Unit 6
-        Button(
-            onClick = { navController.navigate("Unit6") },
-            modifier = Modifier.padding(8.dp)
-        ) {
-            Text(text = "Ir a Unit 6")
-        }
-
-    }
-}
-

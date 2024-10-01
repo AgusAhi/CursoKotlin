@@ -18,14 +18,11 @@ fun Unit10(modifier: Modifier = Modifier, navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Button (onClick = { navController.navigate("Project42") }) {
-            Text("Go to Project 42")
-        }
-        Button(onClick = { navController.navigate("Project43") }) {
-            Text("Go to Project 43")
-        }
-        Button(onClick = { navController.navigate("Units") }) {
-            Text("Go Back")
-        }
+        Button (onClick = { navController.navigate("Project42") }) { Text("Go to Project 42") }
+        Button(onClick = { navController.navigate("Project43") }) { Text("Go to Project 43") }
+        Button(onClick = { navController.navigate("Project44") }) { Text("Go to Project 44") }
+        Button(onClick = { navController.navigate("Project45") }) { Text("Go to Project 45") }
+        Button(onClick = { navController.navigate("Project46") }) { Text("Go to Project 46") }
+        Button(onClick = { navController.navigate("Units") }) { Text("Go Back") }
     }
 }

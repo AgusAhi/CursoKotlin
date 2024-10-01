@@ -18,23 +18,12 @@ fun Units(modifier: Modifier = Modifier, navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Button(onClick = { navController.navigate("Unit5") }) {
-            Text("Go to Unit 5")
-        }
-        Button(onClick = { navController.navigate("Unit6") }) {
-            Text("Go to Unit 6")
-        }
-        Button(onClick = { navController.navigate("Unit7") }) {
-            Text("Go to Unit 7")
-        }
-        Button(onClick = { navController.navigate("Unit8") }) {
-            Text("Go to Unit 8")
-        }
-        Button(onClick = { navController.navigate("Unit9") }) {
-            Text("Go to Unit 9")
-        }
-        Button(onClick = { navController.navigate("Unit10") }) {
-            Text("Go to Unit 10")
-        }
+        Button(onClick = { navController.navigate("Unit5") }) { Text("Go to Unit 5") }
+        Button(onClick = { navController.navigate("Unit6") }) { Text("Go to Unit 6") }
+        Button(onClick = { navController.navigate("Unit7") }) { Text("Go to Unit 7") }
+        Button(onClick = { navController.navigate("Unit8") }) { Text("Go to Unit 8") }
+        Button(onClick = { navController.navigate("Unit9") }) { Text("Go to Unit 9") }
+        Button(onClick = { navController.navigate("Unit10") }) { Text("Go to Unit 10") }
+        Button(onClick = { navController.navigate("Unit11") }) { Text("Go to Unit 11") }
     }
 }

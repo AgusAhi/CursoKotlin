@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
-fun Unit7(modifier: Modifier = Modifier, navController: NavHostController) {
+fun Unit11(modifier: Modifier = Modifier, navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -18,11 +18,6 @@ fun Unit7(modifier: Modifier = Modifier, navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Button(onClick = { navController.navigate("Project18") }) { Text("Go to Project 18") }
-        Button(onClick = { navController.navigate("Project19") }) { Text("Go to Project 19") }
-        Button(onClick = { navController.navigate("Project20") }) { Text("Go to Project 20") }
-        Button(onClick = { navController.navigate("Project21") }) { Text("Go to Project 21") }
-        Button(onClick = { navController.navigate("Project22") }) { Text("Go to Project 22") }
         Button(onClick = { navController.navigate("Units") }) { Text("Go Back") }
     }
 }
