@@ -4,28 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -34,6 +16,7 @@ import com.example.cursokotlin.Unit6.*
 import com.example.cursokotlin.Unit7.*
 import com.example.cursokotlin.Unit8.*
 import com.example.cursokotlin.Unit9.*
+import com.example.cursokotlin.Unit11.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 
@@ -111,7 +94,13 @@ class MainActivity : ComponentActivity() {
                         composable("Project46") { Project46(navController = navController) }
 
                         // Unit 11
-                        composable("Unit11") { Unit10(navController = navController) }
+                        composable("Unit11") { Unit11(navController = navController) }
+                        composable("Project47") { Project47(navController = navController) }
+                        composable("Project48") { Project48(navController = navController) }
+                        composable("Project49") { Project49(navController = navController) }
+                        composable("Project50") { Project50(navController = navController) }
+                        composable("Project51") { Project51(navController = navController) }
+
                     }
                 }
             }
