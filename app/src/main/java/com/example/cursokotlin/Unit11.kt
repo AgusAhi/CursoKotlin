@@ -23,6 +23,13 @@ fun Unit11(modifier: Modifier = Modifier, navController: NavHostController) {
         Button(onClick = { navController.navigate("Project49") }) { Text("Go to Project 49") }
         Button(onClick = { navController.navigate("Project50") }) { Text("Go to Project 50") }
         Button(onClick = { navController.navigate("Project51") }) { Text("Go to Project 51") }
+        Button(onClick = { navController.navigate("Project52") }) { Text("Go to Project 52") }
+        Button(onClick = { navController.navigate("Project53") }) { Text("Go to Project 53") }
+        Button(onClick = { navController.navigate("Project54") }) { Text("Go to Project 54") }
+        Button(onClick = { navController.navigate("Project55") }) { Text("Go to Project 55") }
+        Button(onClick = { navController.navigate("Project56") }) { Text("Go to Project 56") }
+        Button(onClick = { navController.navigate("Project57") }) { Text("Go to Project 57") }
+        Button(onClick = { navController.navigate("Project58") }) { Text("Go to Project 58") }
         Button(onClick = { navController.navigate("Units") }) { Text("Go Back") }
     }
 }
