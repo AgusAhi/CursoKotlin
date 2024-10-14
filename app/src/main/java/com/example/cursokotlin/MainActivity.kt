@@ -1,5 +1,6 @@
 package com.example.cursokotlin
 
+import Units
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,7 +19,6 @@ import com.example.cursokotlin.Unit8.*
 import com.example.cursokotlin.Unit9.*
 import com.example.cursokotlin.Unit11.*
 import com.example.cursokotlin.Unit12.*
-import com.example.cursokotlin.Unit13.*
 import com.example.cursokotlin.Unit14.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     ) {
 
                         // Units page
-                        composable("Units") { Units(navController = navController) }
+                        composable("Units") { Units(modifier = Modifier, navController = navController) }
 
                         // Unit 5
                         composable("Unit5") { Unit5(navController = navController) }
