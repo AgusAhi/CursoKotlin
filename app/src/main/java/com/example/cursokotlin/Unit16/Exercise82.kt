@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit15
+package com.example.cursokotlin.Unit16
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,21 +13,21 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
-class Project78 : ComponentActivity() {
+class Project82 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project78(modifier = Modifier, navController = rememberNavController())
+            Project82(modifier = Modifier, navController = rememberNavController())
         }
     }
 }
 
 @Composable
-fun Project78(modifier: Modifier = Modifier, navController: NavHostController) {
+fun Project82(modifier: Modifier = Modifier, navController: NavHostController) {
     var value1 by remember { mutableStateOf("") } // Input for the first value
     var value2 by remember { mutableStateOf("") } // Input for the second value
     var value3 by remember { mutableStateOf("") } // Input for the third value
-    var result by remember { mutableStateOf<String?>(null) } // Store the result
+    var average by remember { mutableStateOf<String?>(null) } // Store the average result
 
     Column(
         modifier = Modifier
@@ -59,35 +59,24 @@ fun Project78(modifier: Modifier = Modifier, navController: NavHostController) {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Button to order the values
+        // Button to calculate the average
         Button(
             onClick = {
-                result = orderDescending(value1.toInt(), value2.toInt(), value3.toInt())
+                if (value1.isNotEmpty() && value2.isNotEmpty() && value3.isNotEmpty()) {
+                    average = returnAverage(value1.toInt(), value2.toInt(), value3.toInt()).toString()
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Order")
+            Text("Calculate Average")
         }
 
-        // Display the result
-        result?.let { Text("Ordered: $it") }
+        // Display the average result
+        average?.let { Text("The average of the three numbers is $it") }
     }
 }
 
-// Function to order values from greater to lesser
-fun orderDescending(value1: Int, value2: Int, value3: Int): String {
-    return when {
-        value1 >= value2 && value1 >= value3 -> {
-            if (value2 >= value3) "$value1 $value2 $value3"
-            else "$value1 $value3 $value2"
-        }
-        value2 >= value1 && value2 >= value3 -> {
-            if (value1 >= value3) "$value2 $value1 $value3"
-            else "$value2 $value3 $value1"
-        }
-        else -> {
-            if (value1 >= value2) "$value3 $value1 $value2"
-            else "$value3 $value2 $value1"
-        }
-    }
+// Function to calculate the average of three numbers
+fun returnAverage(v1: Int, v2: Int, v3: Int): Int {
+    return (v1 + v2 + v3) / 3
 }
