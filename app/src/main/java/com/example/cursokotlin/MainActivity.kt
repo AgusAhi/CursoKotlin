@@ -20,6 +20,18 @@ import com.example.cursokotlin.Unit9.*
 import com.example.cursokotlin.Unit11.*
 import com.example.cursokotlin.Unit12.*
 import com.example.cursokotlin.Unit14.*
+import com.example.cursokotlin.Unit15.*
+import com.example.cursokotlin.Unit16.*
+import com.example.cursokotlin.Unit17.*
+import com.example.cursokotlin.Unit18.*
+import com.example.cursokotlin.Unit19.*
+import com.example.cursokotlin.Unit20.*
+import com.example.cursokotlin.Unit21.*
+import com.example.cursokotlin.Unit22.*
+import com.example.cursokotlin.Unit23.*
+import com.example.cursokotlin.Unit24.*
+import com.example.cursokotlin.Unit25.*
+
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 
@@ -134,6 +146,63 @@ class MainActivity : ComponentActivity() {
                         composable("Project71") { Project71(navController = navController) }
                         composable("Project72") { Project72(navController = navController) }
                         composable("Project73") { Project73(navController = navController) }
+
+                        // Unit 15
+                        composable("Unit15") { Unit15(navController = navController) }
+                        composable("Project74") { Project74(navController = navController) }
+                        composable("Project75") { Project75(navController = navController) }
+                        composable("Project76") { Project76(navController = navController) }
+                        composable("Project77") { Project77(navController = navController) }
+                        composable("Project78") { Project78(navController = navController) }
+
+                        // Unit 16
+                        composable("Unit16") { Unit16(navController = navController) }
+                        composable("Project79") { Project79(navController = navController) }
+                        composable("Project80") { Project80(navController = navController) }
+                        composable("Project81") { Project81(navController = navController) }
+                        composable("Project82") { Project82(navController = navController) }
+                        composable("Project83") { Project83(navController = navController) }
+                        composable("Project84") { Project84(navController = navController) }
+
+                        // Unit 17
+                        composable("Unit17") { Unit17(navController = navController) }
+                        composable("Project85") { Project85(navController = navController) }
+                        composable("Project86") { Project86(navController = navController) }
+                        composable("Project87") { Project87(navController = navController) }
+                        composable("Project88") { Project88(navController = navController) }
+                        composable("Project89") { Project89(navController = navController) }
+                        composable("Project90") { Project90(navController = navController) }
+                        composable("Project91") { Project91(navController = navController) }
+
+                        // Unit 18
+                        composable("Unit18") { Unit18(navController = navController) }
+                        composable("Project92") { Project92(navController = navController) }
+                        composable("Project93") { Project93(navController = navController) }
+
+                        // Unit 19
+                        composable("Unit19") { Unit19(navController = navController) }
+                        composable("Project94") { Project94(navController = navController) }
+                        composable("Project95") { Project95(navController = navController) }
+
+                        // Unit 20
+                        composable("Unit20") { Unit20(navController = navController) }
+                        composable("Project96") { Project96(navController = navController) }
+                        composable("Project97") { Project97(navController = navController) }
+
+                        // Unit 21
+                        composable("Unit21") { Unit21(navController = navController) }
+                        composable("Project98") { Project98(navController = navController) }
+                        composable("Project99") { Project99(navController = navController) }
+                        composable("Project100") { Project100(navController = navController) }
+
+                        // Unit 25
+                        composable("Unit25") { Unit25(navController = navController) }
+                        composable("Project117") { Project117(navController = navController) }
+
+
+
+
+
 
                     }
                 }
