@@ -12,28 +12,29 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.cursokotlin.Unit5.*
-import com.example.cursokotlin.Unit6.*
-import com.example.cursokotlin.Unit7.*
-import com.example.cursokotlin.Unit8.*
-import com.example.cursokotlin.Unit9.*
-import com.example.cursokotlin.Unit11.*
-import com.example.cursokotlin.Unit12.*
-import com.example.cursokotlin.Unit14.*
-import com.example.cursokotlin.Unit15.*
-import com.example.cursokotlin.Unit16.*
-import com.example.cursokotlin.Unit17.*
-import com.example.cursokotlin.Unit18.*
-import com.example.cursokotlin.Unit19.*
-import com.example.cursokotlin.Unit20.*
-import com.example.cursokotlin.Unit21.*
-import com.example.cursokotlin.Unit22.*
-import com.example.cursokotlin.Unit23.*
-import com.example.cursokotlin.Unit24.*
-import com.example.cursokotlin.Unit25.*
 
+import com.example.cursokotlin.ui.theme.*
+
+import com.example.cursokotlin.Units.Unit5.*
+import com.example.cursokotlin.Units.Unit6.*
+import com.example.cursokotlin.Units.Unit7.*
+import com.example.cursokotlin.Units.Unit8.*
+import com.example.cursokotlin.Units.Unit9.*
+import com.example.cursokotlin.Units.Unit10.*
+import com.example.cursokotlin.Units.Unit11.*
+import com.example.cursokotlin.Units.Unit12.*
+import com.example.cursokotlin.Units.Unit13.*
+import com.example.cursokotlin.Units.Unit14.*
+import com.example.cursokotlin.Units.Unit15.*
+import com.example.cursokotlin.Units.Unit16.*
+import com.example.cursokotlin.Units.Unit17.*
+import com.example.cursokotlin.Units.Unit18.*
+import com.example.cursokotlin.Units.Unit19.*
+import com.example.cursokotlin.Units.Unit20.*
+import com.example.cursokotlin.Units.Unit21.*
+import com.example.cursokotlin.Units.Unit22.*
+import com.example.cursokotlin.Units.Unit23.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,12 +47,12 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = "Units", // Define una ruta inicial
+                        startDestination = "com/example/cursokotlin/Units", // Define una ruta inicial
                         modifier = Modifier.padding(innerPadding)
                     ) {
 
                         // Units page
-                        composable("Units") { Units(modifier = Modifier, navController = navController) }
+                        composable("com/example/cursokotlin/Units") { Units(modifier = Modifier, navController = navController) }
 
                         // Unit 5
                         composable("Unit5") { Unit5(navController = navController) }
@@ -194,16 +195,21 @@ class MainActivity : ComponentActivity() {
                         composable("Project98") { Project98(navController = navController) }
                         composable("Project99") { Project99(navController = navController) }
                         composable("Project100") { Project100(navController = navController) }
+                        composable("Project101") { Project101(navController = navController) }
+                        composable("Project102") { Project102(navController = navController) }
+                        composable("Project103") { Project103(navController = navController) }
+                        composable("Project104") { Project104(navController = navController) }
 
-                        // Unit 25
-                        composable("Unit25") { Unit25(navController = navController) }
-                        composable("Project117") { Project117(navController = navController) }
+                        // Unit 22
+                        composable("Unit22") { Unit22(navController = navController) }
+                        composable("Project105") { Project105(navController = navController) }
+                        composable("Project106") { Project106(navController = navController) }
+                        composable("Project107") { Project107(navController = navController) }
+                        composable("Project108") { Project108(navController = navController) }
 
-
-
-
-
-
+                        // Unit 23
+                        composable("Unit23") { Unit23(navController = navController) }
+                        composable("Project109") { Project109(navController = navController) }
                     }
                 }
             }
