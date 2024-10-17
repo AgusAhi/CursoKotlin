@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Units.Unit23
+package com.example.cursokotlin.Units.Unit25
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
@@ -15,7 +15,7 @@ import com.example.cursokotlin.Units.Unit10.Unit10Title
 import com.example.cursokotlin.ui.theme.FontTittle
 
 @Composable
-fun Unit23Title() {
+fun Unit25Title() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -33,7 +33,7 @@ fun Unit23Title() {
 }
 
 @Composable
-fun Unit23(modifier: Modifier = Modifier, navController: NavHostController) {
+fun Unit25(modifier: Modifier = Modifier, navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,13 +43,12 @@ fun Unit23(modifier: Modifier = Modifier, navController: NavHostController) {
     ) {
         Spacer(modifier = Modifier.height(32.dp))
 
-        Unit23Title()
+        Unit25Title()
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Button(onClick = { navController.navigate("Project109") }) { Text("Go to Project 109") }
-        Button(onClick = { navController.navigate("Project110") }) { Text("Go to Project 110") }
-        Button(onClick = { navController.navigate("Project111") }) { Text("Go to Project 111") }
+        Button(onClick = { navController.navigate("Project117") }) { Text("Go to Project 117") }
+        Button(onClick = { navController.navigate("Project118") }) { Text("Go to Project 118") }
         Button(onClick = { navController.navigate("com/example/cursokotlin/Units") }) { Text("Go Back") }
     }
 }

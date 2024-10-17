@@ -34,6 +34,8 @@ import com.example.cursokotlin.Units.Unit20.*
 import com.example.cursokotlin.Units.Unit21.*
 import com.example.cursokotlin.Units.Unit22.*
 import com.example.cursokotlin.Units.Unit23.*
+import com.example.cursokotlin.Units.Unit24.*
+import com.example.cursokotlin.Units.Unit25.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 class MainActivity : ComponentActivity() {
@@ -210,6 +212,20 @@ class MainActivity : ComponentActivity() {
                         // Unit 23
                         composable("Unit23") { Unit23(navController = navController) }
                         composable("Project109") { Project109(navController = navController) }
+                        composable("Project110") { Project110(navController = navController) }
+                        composable("Project111") { Project111(navController = navController) }
+
+                        // Unit 24
+                        composable("Unit24") { Unit24(navController = navController) }
+                        composable("Project112") { Project112(navController = navController) }
+                        composable("Project113") { Project113(navController = navController) }
+                        composable("Project114") { Project114(navController = navController) }
+                        composable("Project115") { Project115(navController = navController) }
+                        composable("Project116") { Project116(navController = navController) }
+
+                        // Unit 25
+                        composable("Unit25") { Unit25(navController = navController) }
+
                     }
                 }
             }

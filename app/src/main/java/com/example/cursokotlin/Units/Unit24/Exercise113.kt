@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit24
+package com.example.cursokotlin.Units.Unit24
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,15 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-
-class Project113 : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Project113( modifier = Modifier, navController = rememberNavController())
-        }
-    }
-}
 
 @Composable
 fun Project113( modifier: Modifier = Modifier, navController: NavHostController) {
@@ -85,24 +76,6 @@ fun Project113( modifier: Modifier = Modifier, navController: NavHostController)
     }
 }
 
-// Triangulo class with methods for determining the largest side and checking if equilateral
-class Triangulo(var lado1: Int, var lado2: Int, var lado3: Int) {
 
-    // Function to determine the largest side
-    fun ladoMayor(): Int {
-        return when {
-            lado1 > lado2 && lado1 > lado3 -> lado1
-            lado2 > lado3 -> lado2
-            else -> lado3
-        }
-    }
 
-    // Function to check if the triangle is equilateral
-    fun esEquilatero(): String {
-        return if (lado1 == lado2 && lado1 == lado3) {
-            "It is an equilateral triangle"
-        } else {
-            "It is not an equilateral triangle"
-        }
-    }
-}
+

@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Unit24
+package com.example.cursokotlin.Units.Unit24
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,18 +12,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-
-class Project116 : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Project116(modifier = Modifier, navController = rememberNavController())
-        }
-    }
 
     @Composable
-    fun Project116(modifier: Modifier, navController: NavHostController) {
+    fun Project116(modifier: Modifier = Modifier, navController: NavHostController) {
         var xValue by remember { mutableStateOf("") }
         var yValue by remember { mutableStateOf("") }
         var resultCuadrante by remember { mutableStateOf<String?>(null) }
@@ -110,4 +101,4 @@ class Project116 : ComponentActivity() {
             }
         }
     }
-}
+
