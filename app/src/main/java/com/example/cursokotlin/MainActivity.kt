@@ -36,6 +36,9 @@ import com.example.cursokotlin.Units.Unit22.*
 import com.example.cursokotlin.Units.Unit23.*
 import com.example.cursokotlin.Units.Unit24.*
 import com.example.cursokotlin.Units.Unit25.*
+import com.example.cursokotlin.Units.Unit26.*
+import com.example.cursokotlin.Units.Unit27.*
+import com.example.cursokotlin.Units.Unit28.*
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 class MainActivity : ComponentActivity() {
@@ -225,7 +228,25 @@ class MainActivity : ComponentActivity() {
 
                         // Unit 25
                         composable("Unit25") { Unit25(navController = navController) }
+                        composable("Project117") { Project117(navController = navController) }
 
+                        // Unit 26
+                        composable("Unit26") { Unit26(navController = navController) }
+                        composable("Project118") { Project118(navController = navController) }
+                        composable("Project119") { Project119(navController = navController) }
+                        composable("Project120") { Project120(navController = navController) }
+                        composable("Project121") { Project121(navController = navController) }
+
+                        // Unit 27
+                        composable("Unit27") { Unit27(navController = navController) }
+                        composable("Project122") { Project122(navController = navController) }
+                        composable("Project123") { Project123(navController = navController) }
+                        composable("Project124") { Project124(navController = navController) }
+
+                        // Unit 28
+                        composable("Unit28") { Unit28(navController = navController) }
+                        composable("Project125") { Project125(navController = navController) }
+                        composable("Project126") { Project126(navController = navController) }
                     }
                 }
             }

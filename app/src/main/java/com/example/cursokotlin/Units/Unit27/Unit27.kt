@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Units.Unit24
+package com.example.cursokotlin.Units.Unit27
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
@@ -15,7 +15,7 @@ import com.example.cursokotlin.Units.Unit10.Unit10Title
 import com.example.cursokotlin.ui.theme.FontTittle
 
 @Composable
-fun Unit24Title() {
+fun Unit27Title() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -23,7 +23,7 @@ fun Unit24Title() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Unit 24",
+            text = "Unit 27",
             fontSize = 36.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontTittle,
@@ -33,7 +33,7 @@ fun Unit24Title() {
 }
 
 @Composable
-fun Unit24(modifier: Modifier = Modifier, navController: NavHostController) {
+fun Unit27(modifier: Modifier = Modifier, navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,15 +43,13 @@ fun Unit24(modifier: Modifier = Modifier, navController: NavHostController) {
     ) {
         Spacer(modifier = Modifier.height(32.dp))
 
-        Unit24Title()
+        Unit27Title()
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Button(onClick = { navController.navigate("Project112") }) { Text("Go to Project 112") }
-        Button(onClick = { navController.navigate("Project113") }) { Text("Go to Project 113") }
-        Button(onClick = { navController.navigate("Project114") }) { Text("Go to Project 114") }
-        Button(onClick = { navController.navigate("Project115") }) { Text("Go to Project 115") }
-        Button(onClick = { navController.navigate("Project116") }) { Text("Go to Project 116") }
+        Button(onClick = { navController.navigate("Project122") }) { Text("Go to Project 122") }
+        Button(onClick = { navController.navigate("Project123") }) { Text("Go to Project 123") }
+        Button(onClick = { navController.navigate("Project124") }) { Text("Go to Project 124") }
         Button(onClick = { navController.navigate("com/example/cursokotlin/Units") }) { Text("Go Back") }
     }
 }
