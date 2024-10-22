@@ -40,28 +40,18 @@ import com.example.cursokotlin.Units.Unit26.*
 import com.example.cursokotlin.Units.Unit27.*
 import com.example.cursokotlin.Units.Unit28.*
 import com.example.cursokotlin.Units.Unit29.*
+import com.example.cursokotlin.Units.Unit30.*
+import com.example.cursokotlin.Units.Unit31.*
+import com.example.cursokotlin.Units.Unit32.*
+import com.example.cursokotlin.Units.Unit33.*
+import com.example.cursokotlin.Units.Unit34.*
+import com.example.cursokotlin.Units.Unit35.*
+import com.example.cursokotlin.Units.Unit36.*
+import com.example.cursokotlin.Units.Unit37.*
+import com.example.cursokotlin.Units.Unit38.*
+import com.example.cursokotlin.Units.Unit39.*
+import com.example.cursokotlin.Units.Unit40.*
 
-/*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
-import com.example.cursokotlin.Units.Unit30.*
- */
 import com.example.cursokotlin.ui.theme.CursoKotlinTheme
 
 class MainActivity : ComponentActivity() {
@@ -277,6 +267,26 @@ class MainActivity : ComponentActivity() {
                         composable("Project128") { Project128(navController = navController) }
                         composable("Project129") { Project129(navController = navController) }
                         composable("Project130") { Project130(navController = navController) }
+
+                        // Unit 30
+                        composable("Unit30") { Unit30(navController = navController) }
+                        composable("Project131") { Project131(navController = navController) }
+                        composable("Project132") { Project132(navController = navController) }
+                        composable("Project133") { Project133(navController = navController) }
+
+                        // Unit 31
+                        composable("Unit31") { Unit31(navController = navController) }
+                        composable("Project134") { Project134(navController = navController) }
+                        composable("Project135") { Project135(navController = navController) }
+                        composable("Project136") { Project136(navController = navController) }
+
+                        // Unit 32
+                        composable("Unit32") { Unit32(navController = navController) }
+                        composable("Project137") { Project137(navController = navController) }
+                        composable("Project138") { Project138(navController = navController) }
+                        composable("Project139") { Project139(navController = navController) }
+
+
 
                     }
                 }
