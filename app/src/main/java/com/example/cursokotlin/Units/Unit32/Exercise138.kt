@@ -62,7 +62,7 @@ class CalculadoraCientifica(valor1: Double, valor2: Double) : Calculadora(valor1
 }
 
 @Composable
-fun Project137(navController: NavHostController, modifier: Modifier = Modifier) {
+fun Project138(navController: NavHostController, modifier: Modifier = Modifier) {
     var personaOutput by remember { mutableStateOf("") }
     var empleadoOutput by remember { mutableStateOf("") }
     var calculadoraOutput by remember { mutableStateOf("") }
