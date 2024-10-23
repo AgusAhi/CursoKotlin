@@ -19,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun Project39(modifier: Modifier = Modifier, navController: NavHostController) {
     var x by remember { mutableStateOf(0) }
-    var mult8 by remember { mutableStateOf(8) }
+    var mult8 by remember { mutableStateOf(0) }
     var result1 by remember { mutableStateOf(0) }
     val scrollState = rememberScrollState()
 

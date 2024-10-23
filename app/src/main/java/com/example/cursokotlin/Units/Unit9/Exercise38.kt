@@ -19,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun Project38(modifier: Modifier = Modifier, navController: NavHostController) {
     var x by remember { mutableStateOf(0) }
-    var term by remember { mutableStateOf(11) }
+    var term by remember { mutableStateOf(0) }
     var result1 by remember { mutableStateOf(0) }
     val scrollState = rememberScrollState()
 
@@ -33,7 +33,7 @@ fun Project38(modifier: Modifier = Modifier, navController: NavHostController) {
     ) {
         Button(
             onClick = {
-                if (x <= 25) {
+                if (x <= 24) {
                     term += 11
                     x += 1
                 }
