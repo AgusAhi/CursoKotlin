@@ -51,6 +51,10 @@ fun Unit45(modifier: Modifier = Modifier, navController: NavHostController) {
         Button(onClick = { navController.navigate("Project174") }) { Text("Go to Project 174") }
         Button(onClick = { navController.navigate("Project175") }) { Text("Go to Project 175") }
         Button(onClick = { navController.navigate("Project176") }) { Text("Go to Project 176") }
+        Button(onClick = { navController.navigate("Project177") }) { Text("Go to Project 177") }
+        Button(onClick = { navController.navigate("Project178") }) { Text("Go to Project 178") }
+        Button(onClick = { navController.navigate("Project179") }) { Text("Go to Project 179") }
+        Button(onClick = { navController.navigate("Project180") }) { Text("Go to Project 180") }
         Button(onClick = { navController.navigate("com/example/cursokotlin/Units") }) { Text("Go Back") }
     }
 }

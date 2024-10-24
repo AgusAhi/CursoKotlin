@@ -47,6 +47,7 @@ fun Unit44(modifier: Modifier = Modifier, navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        Text(text = "There are no projects in this unit", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         Button(onClick = { navController.navigate("com/example/cursokotlin/Units") }) { Text("Go Back") }
     }
 }

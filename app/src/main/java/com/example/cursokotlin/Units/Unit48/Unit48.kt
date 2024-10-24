@@ -47,6 +47,8 @@ fun Unit48(modifier: Modifier = Modifier, navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        Button(onClick = { navController.navigate("Project190") }) { Text("Go to Project 190") }
+        Button(onClick = { navController.navigate("Project191") }) { Text("Go to Project 191") }
         Button(onClick = { navController.navigate("com/example/cursokotlin/Units") }) { Text("Go Back") }
     }
 }
