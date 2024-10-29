@@ -26,7 +26,7 @@ fun Units(modifier: Modifier = Modifier, navController: NavHostController) {
     )
 
     val colorfulTitle = buildAnnotatedString {
-        val title = "Curso Kotlin"
+        val title = "Kotlin Course"
         title.forEachIndexed { index, char ->
             val color = colors[index % colors.size] // Cambia de color en cada letra
             append(AnnotatedString("$char", spanStyle = SpanStyle(color = color)))

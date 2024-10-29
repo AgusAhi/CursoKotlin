@@ -1,8 +1,5 @@
 package com.example.cursokotlin.Units.Unit23
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
@@ -11,7 +8,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun Project110(modifier: Modifier = Modifier, navController: NavHostController) {
@@ -79,11 +75,11 @@ fun Project110(modifier: Modifier = Modifier, navController: NavHostController) 
 }
 
 // Function to calculate the largest side of the triangle
-fun calculateLargestSide(lado1: Int, lado2: Int, lado3: Int): String {
+fun calculateLargestSide(s1: Int, s2: Int, s3: Int): String {
     return when {
-        lado1 > lado2 && lado1 > lado3 -> lado1.toString()
-        lado2 > lado3 -> lado2.toString()
-        else -> lado3.toString()
+        s1 > s2 && s1 > s3 -> s1.toString()
+        s2 > s3 -> s2.toString()
+        else -> s3.toString()
     }
 }
 

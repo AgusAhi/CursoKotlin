@@ -35,17 +35,16 @@ fun Project67(modifier: Modifier = Modifier, navController: NavHostController) {
 
         Button(
             onClick = {
-                val value = inputValue.toIntOrNull() // Convert input to integer safely
+                val value = inputValue.toIntOrNull() // Safely convert input to an integer
                 outputText = when (value) {
-                    in 1..9 -> "Tiene 1 dígito"
-                    in 10..99 -> "Tiene 2 dígitos"
-                    in 100..999 -> "Tiene 3 dígitos"
-                    in 1000..9999 -> "Tiene 4 dígitos"
-                    in 10000..99999 -> "Tiene 5 dígitos"
-                    else -> "No se encuentra comprendido en el rango indicado" // Out of range message
+                    in 1..9 -> "It has 1 digit"
+                    in 10..99 -> "It has 2 digits"
+                    in 100..999 -> "It has 3 digits"
+                    in 1000..9999 -> "It has 4 digits"
+                    in 10000..99999 -> "It has 5 digits"
+                    else -> "It is not within the specified range" // Out of range message
                 }
-            },
-            modifier = Modifier.fillMaxWidth()
+            }
         ) {
             Text("Submit")
         }

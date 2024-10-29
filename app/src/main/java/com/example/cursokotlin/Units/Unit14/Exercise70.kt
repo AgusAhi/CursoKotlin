@@ -59,7 +59,12 @@ fun Project70(modifier: Modifier = Modifier, navController: NavHostController) {
             Text("The sum of the two values is: $it")
         }
 
-        Text("*******************************")
-        Text("Thank you for using this program")
+        final()
     }
+}
+
+@Composable
+private fun final() {
+    Text("*******************************")
+    Text("Thank you for using this program")
 }

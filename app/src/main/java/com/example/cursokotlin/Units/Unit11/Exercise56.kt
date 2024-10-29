@@ -85,7 +85,6 @@ fun Project56(modifier: Modifier = Modifier, navController: NavHostController) {
                 Text("Check Triangle")
             }
 
-            // Mostrar el resultado de cada triángulo
             if (resultMessage.isNotEmpty()) {
                 Text(resultMessage)
             }

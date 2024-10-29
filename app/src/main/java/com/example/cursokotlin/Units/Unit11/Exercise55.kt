@@ -59,7 +59,6 @@ fun Project55(modifier: Modifier = Modifier, navController: NavHostController) {
     }
 }
 
-// Función para generar la tabla de multiplicar (12 términos)
 fun generateMultiplicationTable(number: Int): List<Int> {
     return (1..12).map { it * number }
 }
