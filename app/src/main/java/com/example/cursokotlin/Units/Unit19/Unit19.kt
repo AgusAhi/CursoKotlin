@@ -23,7 +23,7 @@ fun Unit19Title() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Unit 6",
+            text = "Unit 19",
             fontSize = 36.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontTittle,

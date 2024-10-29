@@ -18,7 +18,7 @@ fun Project74(modifier: Modifier = Modifier, navController: NavHostController) {
     var inputValue1 by remember { mutableStateOf("") } // Input for the first value
     var inputValue2 by remember { mutableStateOf("") } // Input for the second value
     var result by remember { mutableStateOf<String?>(null) } // Store sum result
-    var message by remember { mutableStateOf("El programa calcula la suma de dos valores ingresados por teclado.") } // Initial message
+    var message by remember { mutableStateOf("The program calculates the sum of two values entered via keyboard.") } // Initial message
     var showMessage by remember { mutableStateOf(true) } // Control message display
 
     Column(
@@ -36,7 +36,7 @@ fun Project74(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = inputValue1,
             onValueChange = { inputValue1 = it },
-            label = { Text("Ingrese el primer valor") },
+            label = { Text("Enter the first value") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -44,7 +44,7 @@ fun Project74(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = inputValue2,
             onValueChange = { inputValue2 = it },
-            label = { Text("Ingrese el segundo valor") },
+            label = { Text("Enter the second value") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -58,13 +58,13 @@ fun Project74(modifier: Modifier = Modifier, navController: NavHostController) {
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Calcular Suma")
+            Text("Calculate Sum")
         }
 
         // Display the result of the sum calculation
         if (result != null) {
-            Text("La suma de los dos valores es: $result")
-            ShowMessage("Gracias por utilizar este programa")
+            Text("The sum of the two values is: $result")
+            ShowMessage("Thank you for using this program")
         }
     }
 }

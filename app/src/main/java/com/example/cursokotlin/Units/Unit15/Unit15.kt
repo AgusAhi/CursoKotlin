@@ -47,6 +47,7 @@ fun Unit15(modifier: Modifier = Modifier, navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        Button(onClick = { navController.navigate("Project74") }) { Text("Go to Project 74") }
         Button(onClick = { navController.navigate("Project75") }) { Text("Go to Project 75") }
         Button(onClick = { navController.navigate("Project76") }) { Text("Go to Project 76") }
         Button(onClick = { navController.navigate("Project77") }) { Text("Go to Project 77") }

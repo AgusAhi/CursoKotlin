@@ -50,4 +50,4 @@ fun Project89(modifier: Modifier = Modifier, navController: NavHostController) {
 }
 
 // Function to calculate the perimeter of a square
-fun returnPerimeter(lado: Int) = lado * 4
+fun returnPerimeter(side: Int) = side * 4

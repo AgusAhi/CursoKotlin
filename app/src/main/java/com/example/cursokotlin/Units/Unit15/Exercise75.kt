@@ -30,7 +30,7 @@ fun Project75(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = inputValue1,
             onValueChange = { inputValue1 = it },
-            label = { Text("Ingrese primer valor") },
+            label = { Text("Enter the first value") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -38,7 +38,7 @@ fun Project75(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = inputValue2,
             onValueChange = { inputValue2 = it },
-            label = { Text("Ingrese segundo valor") },
+            label = { Text("Enter the second value") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -46,7 +46,7 @@ fun Project75(modifier: Modifier = Modifier, navController: NavHostController) {
         OutlinedTextField(
             value = inputValue3,
             onValueChange = { inputValue3 = it },
-            label = { Text("Ingrese tercer valor") },
+            label = { Text("Enter the third value") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -60,12 +60,12 @@ fun Project75(modifier: Modifier = Modifier, navController: NavHostController) {
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Mostrar Mayor")
+            Text("Show greater")
         }
 
         // Display the result of the largest value
         if (result != null) {
-            Text("Mayor: $result")
+            Text("Greater: $result")
         }
     }
 }

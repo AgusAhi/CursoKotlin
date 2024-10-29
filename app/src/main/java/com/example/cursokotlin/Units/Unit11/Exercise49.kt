@@ -42,7 +42,7 @@ fun Project49(modifier: Modifier = Modifier, navController: NavHostController) {
                 .fillMaxWidth()
                 .padding(10.dp),
             singleLine = true,
-        )
+        ) 
 
         Button(
             onClick = {

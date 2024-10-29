@@ -15,9 +15,9 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun Project77(modifier: Modifier = Modifier, navController: NavHostController) {
-    var clave1 by remember { mutableStateOf("") } // Input for first key
-    var clave2 by remember { mutableStateOf("") } // Input for second key
-    var resultado by remember { mutableStateOf<String?>(null) } // Store result
+    var key1 by remember { mutableStateOf("") } // Input for first key
+    var key2 by remember { mutableStateOf("") } // Input for second key
+    var result by remember { mutableStateOf<String?>(null) } // Store result
 
     Column(
         modifier = Modifier
@@ -27,40 +27,40 @@ fun Project77(modifier: Modifier = Modifier, navController: NavHostController) {
     ) {
         // Input for the first key
         OutlinedTextField(
-            value = clave1,
-            onValueChange = { clave1 = it },
-            label = { Text("Ingrese primer clave") },
+            value = key1,
+            onValueChange = { key1 = it },
+            label = { Text("Enter first key") },
             modifier = Modifier.fillMaxWidth()
         )
 
         // Input for the second key
         OutlinedTextField(
-            value = clave2,
-            onValueChange = { clave2 = it },
-            label = { Text("Repita el ingreso de la misma clave") },
+            value = key2,
+            onValueChange = { key2 = it },
+            label = { Text("Re-enter the same key") },
             modifier = Modifier.fillMaxWidth()
         )
 
         // Button to verify keys
         Button(
             onClick = {
-                resultado = verificarClaves(clave1, clave2)
+                result = verifyKeys(key1, key2)
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Verificar Claves")
+            Text("Verify Keys")
         }
 
         // Display the result
-        resultado?.let { Text(it) }
+        result?.let { Text(it) }
     }
 }
 
 // Function to verify if both keys are the same
-fun verificarClaves(clave1: String, clave2: String): String {
-    return if (clave1 == clave2) {
-        "Se ingresaron las dos veces la misma clave"
+fun verifyKeys(key1: String, key2: String): String {
+    return if (key1 == key2) {
+        "The same key was entered twice"
     } else {
-        "No se ingresó las dos veces con el mismo valor"
+        "The keys entered are not the same"
     }
 }
