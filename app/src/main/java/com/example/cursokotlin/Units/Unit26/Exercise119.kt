@@ -1,15 +1,11 @@
 package com.example.cursokotlin.Units.Unit26
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.* // For layout management
 import androidx.compose.material3.* // Material 3 for UI components
 import androidx.compose.runtime.* // For managing state
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 
 // Composable function for the main UI
 @Composable
@@ -27,7 +23,7 @@ fun Project119(modifier: Modifier = Modifier, navController: NavHostController) 
         Text(text = "Bank Operations")
 
         Button(onClick = {
-            bank.operar()
+            bank.operate()
             totalDeposits = bank.getTotalDeposits()
             showDetails = true
         }) {
@@ -39,47 +35,47 @@ fun Project119(modifier: Modifier = Modifier, navController: NavHostController) 
         }
 
         if (showDetails) {
-            ClientDetails(client = bank.cliente1)
-            ClientDetails(client = bank.cliente2)
-            ClientDetails(client = bank.cliente3)
+            ClientDetails(client = bank.client1)
+            ClientDetails(client = bank.client2)
+            ClientDetails(client = bank.client3)
         }
     }
 }
 
 // Composable function to display individual client details
 @Composable
-fun ClientDetails(client: Cliente) {
+fun ClientDetails(client: Client) {
     Text(text = "${client.nombre} has a balance of ${client.monto}")
 }
 
 // Data class for the client
-class Cliente(var nombre: String, var monto: Float) {
-    fun depositar(monto: Float) {
+class Client(var nombre: String, var monto: Float) {
+    fun deposit(monto: Float) {
         this.monto += monto
     }
 
-    fun extraer(monto: Float) {
+    fun extract(monto: Float) {
         this.monto -= monto
     }
 }
 
 // Class for the bank which operates on multiple clients
 class Banco {
-    val cliente1 = Cliente("Juan", 0f)
-    var cliente2 = Cliente("Ana", 0f)
-    var cliente3 = Cliente("Luis", 0f)
+    val client1 = Client("Juan", 0f)
+    var client2 = Client("Ana", 0f)
+    var client3 = Client("Luis", 0f)
 
     // Function to perform operations
-    fun operar() {
-        cliente1.depositar(100f)
-        cliente2.depositar(150f)
-        cliente3.depositar(200f)
-        cliente3.extraer(150f)
+    fun operate() {
+        client1.deposit(100f)
+        client2.deposit(150f)
+        client3.deposit(200f)
+        client3.extract(150f)
     }
 
     // Function to return the total deposits as a string
     fun getTotalDeposits(): String {
-        val total = cliente1.monto + cliente2.monto + cliente3.monto
+        val total = client1.monto + client2.monto + client3.monto
         return "The total money in the bank is: $total"
     }
 }
