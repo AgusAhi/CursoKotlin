@@ -15,7 +15,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun Project121(modifier: Modifier = Modifier, navController: NavHostController) {
     val club = remember { Club() }
-    var mayorAntiguedad by remember { mutableStateOf("") }
+    var mostSeniority by remember { mutableStateOf("") }
 
     Column(
         modifier = modifier
@@ -27,38 +27,38 @@ fun Project121(modifier: Modifier = Modifier, navController: NavHostController) 
         Text(text = "Club Members", style = MaterialTheme.typography.titleLarge)
 
         // Display each member's name and seniority
-        Text(text = "${club.socio1.nombre} has been a member for ${club.socio1.antiguedad} years.")
-        Text(text = "${club.socio2.nombre} has been a member for ${club.socio2.antiguedad} years.")
-        Text(text = "${club.socio3.nombre} has been a member for ${club.socio3.antiguedad} years.")
+        Text(text = "${club.member1.name} has been a member for ${club.member1.seniority} years.")
+        Text(text = "${club.member2.name} has been a member for ${club.member2.seniority} years.")
+        Text(text = "${club.member3.name} has been a member for ${club.member3.seniority} years.")
 
         // Button to evaluate and display the member with the most seniority
         Button(onClick = {
-            mayorAntiguedad = club.mayorAntiguedad()
+            mostSeniority = club.mostSeniority()
         }) {
             Text(text = "Find Member with Most Seniority")
         }
 
-        if (mayorAntiguedad.isNotEmpty()) {
-            Text(text = "Member with most seniority: $mayorAntiguedad")
+        if (mostSeniority.isNotEmpty()) {
+            Text(text = "Member with most seniority: $mostSeniority")
         }
     }
 }
 
 // Data class representing a club member
-class Socio(val nombre: String, val antiguedad: Int)
+class Member(val name: String, val seniority: Int)
 
 // Class representing the club with multiple members
 class Club {
-    val socio1 = Socio("Juan", 22)
-    val socio2 = Socio("Ana", 34)
-    val socio3 = Socio("Carlos", 1)
+    val member1 = Member("John", 22)
+    val member2 = Member("Ana", 34)
+    val member3 = Member("Carlos", 1)
 
     // Function to find and return the member with the most seniority
-    fun mayorAntiguedad(): String {
+    fun mostSeniority(): String {
         return when {
-            socio1.antiguedad > socio2.antiguedad && socio1.antiguedad > socio3.antiguedad -> socio1.nombre
-            socio2.antiguedad > socio3.antiguedad -> socio2.nombre
-            else -> socio3.nombre
+            member1.seniority > member2.seniority && member1.seniority > member3.seniority -> member1.name
+            member2.seniority > member3.seniority -> member2.name
+            else -> member3.name
         }
     }
 }

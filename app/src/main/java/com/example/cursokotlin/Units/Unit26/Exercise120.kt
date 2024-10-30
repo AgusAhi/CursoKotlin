@@ -1,22 +1,18 @@
 package com.example.cursokotlin.Units.Unit26
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.* // For layout management
 import androidx.compose.material3.* // Material 3 for UI components
 import androidx.compose.runtime.* // For managing state
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import kotlin.random.Random
 
 // Composable function for the main UI
 @Composable
 fun Project120(modifier: Modifier = Modifier, navController: NavHostController) {
-    val juegoDeDados = remember { JuegoDeDados() }
-    var resultado by remember { mutableStateOf("") }
+    val diceGame = remember { DiceGame() }
+    var result by remember { mutableStateOf("") }
 
     Column(
         modifier = modifier
@@ -28,45 +24,45 @@ fun Project120(modifier: Modifier = Modifier, navController: NavHostController) 
         Text(text = "Dice Game", style = MaterialTheme.typography.titleLarge)
 
         Button(onClick = {
-            resultado = juegoDeDados.jugar()
+            result = diceGame.play()
         }) {
             Text(text = "Roll the Dice")
         }
 
-        if (resultado.isNotEmpty()) {
-            Text(text = resultado)
+        if (result.isNotEmpty()) {
+            Text(text = result)
         }
 
-        Text(text = "Die 1: ${juegoDeDados.dado1.valor}")
-        Text(text = "Die 2: ${juegoDeDados.dado2.valor}")
-        Text(text = "Die 3: ${juegoDeDados.dado3.valor}")
+        Text(text = "Dice 1: ${diceGame.dice1.value}")
+        Text(text = "Dice 2: ${diceGame.dice2.value}")
+        Text(text = "Dice 3: ${diceGame.dice3.value}")
     }
 }
 
 // Dice class
-class Dado(var valor: Int) {
+class Dice(var value: Int) {
     // Function to simulate rolling the dice
-    fun tirar() {
-        valor = Random.nextInt(1, 7)  // Generates a random number between 1 and 6
+    fun roll() {
+        value = Random.nextInt(1, 7)  // Generates a random number between 1 and 6
     }
 }
 
 // Class for the dice game logic
-class JuegoDeDados {
-    val dado1 = Dado(1)
-    val dado2 = Dado(1)
-    val dado3 = Dado(1)
+class DiceGame {
+    val dice1 = Dice(1)
+    val dice2 = Dice(1)
+    val dice3 = Dice(1)
 
     // Function to simulate the game and return the result
-    fun jugar(): String {
-        dado1.tirar()
-        dado2.tirar()
-        dado3.tirar()
+    fun play(): String {
+        dice1.roll()
+        dice2.roll()
+        dice3.roll()
 
-        return if (dado1.valor == dado2.valor && dado2.valor == dado3.valor) {
-            "You Won! All dice show ${dado1.valor}."
+        return if (dice1.value == dice2.value && dice2.value == dice3.value) {
+            "You Won! All dice show ${dice1.value}."
         } else {
-            "You Lost. Dice show ${dado1.valor}, ${dado2.valor}, and ${dado3.valor}."
+            "You Lost. Dice show ${dice1.value}, ${dice2.value}, and ${dice3.value}."
         }
     }
 }

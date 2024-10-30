@@ -1,15 +1,11 @@
 package com.example.cursokotlin.Units.Unit28
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.* // For layout management
 import androidx.compose.material3.* // Material 3 for UI components
 import androidx.compose.runtime.* // For managing state
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 
 // Composable function for the main UI
 @Composable
@@ -47,10 +43,10 @@ fun Project125(modifier: Modifier = Modifier, navController: NavHostController) 
 
         // Button to submit and display name and age
         Button(onClick = {
-            persona.nombre = personName
-            persona.edad = personAge.toIntOrNull() ?: 0
-            displayName = persona.nombre
-            displayAge = persona.edad.toString()
+            persona.name = personName
+            persona.age = personAge.toIntOrNull() ?: 0
+            displayName = persona.name
+            displayAge = persona.age.toString()
         }) {
             Text(text = "Submit")
         }
@@ -69,7 +65,7 @@ fun Project125(modifier: Modifier = Modifier, navController: NavHostController) 
 
 // Persona class with name and age handling logic
 class Persona {
-    var nombre: String = ""
+    var name: String = ""
         set(valor) {
             field = valor.uppercase() // Convert to uppercase
         }
@@ -77,7 +73,7 @@ class Persona {
             return "($field)" // Return name in parentheses
         }
 
-    var edad: Int = 0
+    var age: Int = 0
         set(valor) {
             field = if (valor >= 0) valor else 0 // Set age to 0 if negative
         }

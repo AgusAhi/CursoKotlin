@@ -57,7 +57,7 @@ fun Project122(modifier: Modifier = Modifier, navController: NavHostController) 
 }
 
 // Function to perform sum and subtraction and return the result as a string
-fun calculateOperations(value1: Int, value2: Int): String {
+private fun calculateOperations(value1: Int, value2: Int): String {
     val sum = value1 + value2
     val subtraction = value1 - value2
     return "The sum of $value1 and $value2 is $sum\n" +
