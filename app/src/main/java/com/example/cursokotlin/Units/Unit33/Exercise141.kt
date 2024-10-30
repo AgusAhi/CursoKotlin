@@ -10,30 +10,30 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
-// Abstract class Cuenta
-abstract class Cuenta(val titular: String, val monto: Double) {
-    open fun imprimir(): String {
-        return "Holder: $titular\nAmount: $monto"
+// Abstract class Account
+abstract class Account(val holder: String, val amount: Double) {
+    open fun print(): String {
+        return "Holder: $holder\nAmount: $amount"
     }
 }
 
-// Class CajaAhorro (Savings Account)
-class CajaAhorro(titular: String, monto: Double) : Cuenta(titular, monto) {
-    override fun imprimir(): String {
-        return "Savings Account\n${super.imprimir()}"
+// Class SavingsAccount
+class SavingsAccount(holder: String, amount: Double) : Account(holder, amount) {
+    override fun print(): String {
+        return "Savings Account\n${super.print()}"
     }
 }
 
-// Class PlazoFijo (Fixed-term Deposit Account)
-class PlazoFijo(titular: String, monto: Double, val plazo: Int, val interes: Double) : Cuenta(titular, monto) {
-    override fun imprimir(): String {
-        val ganancia = monto * interes / 100
+// Class FixedTermDeposit
+class FixedTermDeposit(holder: String, amount: Double, val term: Int, val interestRate: Double) : Account(holder, amount) {
+    override fun print(): String {
+        val interestAmount = amount * interestRate / 100
         return """
             Fixed-term Account
-            Term in days: $plazo
-            Interest rate: $interes%
-            Interest amount: $ganancia
-            ${super.imprimir()}
+            Term in days: $term
+            Interest rate: $interestRate%
+            Interest amount: $interestAmount
+            ${super.print()}
         """.trimIndent()
     }
 }
@@ -41,8 +41,8 @@ class PlazoFijo(titular: String, monto: Double, val plazo: Int, val interes: Dou
 // Jetpack Compose function
 @Composable
 fun Project141(navController: NavHostController, modifier: Modifier = Modifier) {
-    var cajaAhorroOutput by remember { mutableStateOf("") }
-    var plazoFijoOutput by remember { mutableStateOf("") }
+    var savingsAccountOutput by remember { mutableStateOf("") }
+    var fixedTermDepositOutput by remember { mutableStateOf("") }
 
     Column(
         modifier = modifier
@@ -50,25 +50,22 @@ fun Project141(navController: NavHostController, modifier: Modifier = Modifier) 
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        // Button to display CajaAhorro (Savings Account) details
+        // Button to display SavingsAccount details
         Button(onClick = {
-            val cajaAhorro1 = CajaAhorro("Juan", 10000.0)
-            cajaAhorroOutput = cajaAhorro1.imprimir()
+            val savingsAccount1 = SavingsAccount("Juan", 10000.0)
+            savingsAccountOutput = savingsAccount1.print()
         }) {
             Text(text = "Show Savings Account Info", fontSize = 18.sp)
         }
-        Text(text = cajaAhorroOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = savingsAccountOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
 
-        // Button to display PlazoFijo (Fixed-term Deposit) details
+        // Button to display FixedTermDeposit details
         Button(onClick = {
-            val plazoFijo1 = PlazoFijo("Ana", 5000.0, 30, 1.23)
-            plazoFijoOutput = plazoFijo1.imprimir()
+            val fixedTermDeposit1 = FixedTermDeposit("Ana", 5000.0, 30, 1.23)
+            fixedTermDepositOutput = fixedTermDeposit1.print()
         }, modifier = Modifier.padding(top = 16.dp)) {
             Text(text = "Show Fixed-term Deposit Info", fontSize = 18.sp)
         }
-        Text(text = plazoFijoOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = fixedTermDepositOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
     }
 }
-
-
-

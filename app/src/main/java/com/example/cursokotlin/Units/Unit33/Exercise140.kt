@@ -10,34 +10,34 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
-// Abstract class Operacion
-abstract class Operacion(val valor1: Int, val valor2: Int) {
-    protected var resultado: Int = 0
-    abstract fun operar()
-    fun imprimir(): String {
-        return "Result: $resultado"
+// Abstract class Operation
+abstract class Operation(val value1: Int, val value2: Int) {
+    protected var result: Int = 0
+    abstract fun operate()
+    fun print(): String {
+        return "Result: $result"
     }
 }
 
-// Class Suma (Addition)
-class Suma(valor1: Int, valor2: Int) : Operacion(valor1, valor2) {
-    override fun operar() {
-        resultado = valor1 + valor2
+// Class Addition
+class Addition(value1: Int, value2: Int) : Operation(value1, value2) {
+    override fun operate() {
+        result = value1 + value2
     }
 }
 
-// Class Resta (Subtraction)
-class Resta(valor1: Int, valor2: Int) : Operacion(valor1, valor2) {
-    override fun operar() {
-        resultado = valor1 - valor2
+// Class Subtraction
+class Subtraction(value1: Int, value2: Int) : Operation(value1, value2) {
+    override fun operate() {
+        result = value1 - value2
     }
 }
 
 // Jetpack Compose function
 @Composable
 fun Project140(navController: NavHostController, modifier: Modifier = Modifier) {
-    var sumaResult by remember { mutableStateOf("") }
-    var restaResult by remember { mutableStateOf("") }
+    var additionResult by remember { mutableStateOf("") }
+    var subtractionResult by remember { mutableStateOf("") }
 
     Column(
         modifier = modifier
@@ -45,25 +45,24 @@ fun Project140(navController: NavHostController, modifier: Modifier = Modifier) 
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        // Button to trigger Suma (addition)
+        // Button to trigger Addition
         Button(onClick = {
-            val suma1 = Suma(10, 4)
-            suma1.operar()
-            sumaResult = suma1.imprimir()
+            val addition1 = Addition(10, 4)
+            addition1.operate()
+            additionResult = addition1.print()
         }) {
             Text(text = "Perform Addition", fontSize = 18.sp)
         }
-        Text(text = sumaResult, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = additionResult, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
 
-        // Button to trigger Resta (subtraction)
+        // Button to trigger Subtraction
         Button(onClick = {
-            val resta1 = Resta(20, 5)
-            resta1.operar()
-            restaResult = resta1.imprimir()
+            val subtraction1 = Subtraction(20, 5)
+            subtraction1.operate()
+            subtractionResult = subtraction1.print()
         }, modifier = Modifier.padding(top = 16.dp)) {
             Text(text = "Perform Subtraction", fontSize = 18.sp)
         }
-        Text(text = restaResult, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = subtractionResult, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
     }
 }
-

@@ -10,25 +10,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
-// Base class Dado
-open class Dado {
-    protected var valor: Int = 1
+// Base class Dice
+open class Dice {
+    protected var value: Int = 1
 
-    fun tirar() {
-        valor = ((Math.random() * 6) + 1).toInt()
+    fun roll() {
+        value = ((Math.random() * 6) + 1).toInt()
     }
 
-    open fun imprimir(): String {
-        return valor.toString()
+    open fun print(): String {
+        return value.toString()
     }
 }
 
-// Derived class DadoRecuadro with overridden imprimir method
-class DadoRecuadro : Dado() {
-    override fun imprimir(): String {
+// Derived class BoxedDice with overridden print method
+class BoxedDice : Dice() {
+    override fun print(): String {
         return """
             ***
-            *$valor*
+            *$value*
             ***
         """.trimIndent()
     }
@@ -37,8 +37,8 @@ class DadoRecuadro : Dado() {
 // Jetpack Compose function
 @Composable
 fun Project139(navController: NavHostController, modifier: Modifier = Modifier) {
-    var dadoOutput by remember { mutableStateOf("") }
-    var dadoRecuadroOutput by remember { mutableStateOf("") }
+    var diceOutput by remember { mutableStateOf("") }
+    var boxedDiceOutput by remember { mutableStateOf("") }
 
     Column(
         modifier = modifier
@@ -46,24 +46,24 @@ fun Project139(navController: NavHostController, modifier: Modifier = Modifier) 
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        // Button to trigger the dice throw for the Dado class
+        // Button to trigger the dice roll for the Dice class
         Button(onClick = {
-            val dado1 = Dado()
-            dado1.tirar()
-            dadoOutput = "Dado Result: ${dado1.imprimir()}"
+            val dice1 = Dice()
+            dice1.roll()
+            diceOutput = "Dice Result: ${dice1.print()}"
         }) {
-            Text(text = "Throw Dado", fontSize = 18.sp)
+            Text(text = "Roll Dice", fontSize = 18.sp)
         }
-        Text(text = dadoOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = diceOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
 
-        // Button to trigger the dice throw for the DadoRecuadro class
+        // Button to trigger the dice roll for the BoxedDice class
         Button(onClick = {
-            val dado2 = DadoRecuadro()
-            dado2.tirar()
-            dadoRecuadroOutput = "DadoRecuadro Result:\n${dado2.imprimir()}"
+            val dice2 = BoxedDice()
+            dice2.roll()
+            boxedDiceOutput = "BoxedDice Result:\n${dice2.print()}"
         }, modifier = Modifier.padding(top = 16.dp)) {
-            Text(text = "Throw Dado with Box", fontSize = 18.sp)
+            Text(text = "Roll Boxed Dice", fontSize = 18.sp)
         }
-        Text(text = dadoRecuadroOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = boxedDiceOutput, fontSize = 16.sp, modifier = Modifier.padding(top = 8.dp))
     }
 }

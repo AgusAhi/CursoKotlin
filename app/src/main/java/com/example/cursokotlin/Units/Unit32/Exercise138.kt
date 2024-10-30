@@ -6,57 +6,56 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import kotlin.math.sqrt
 
-open class Persona(val nombre: String, val edad: Int) {
-    open fun imprimir(): String {
-        return "Name: $nombre\nAge: $edad"
+open class Persona(val name: String, val age: Int) {
+    open fun print(): String {
+        return "Name: $name\nAge: $age"
     }
 }
 
-class Empleado(nombre: String, edad: Int, val sueldo: Double) : Persona(nombre, edad) {
-    override fun imprimir(): String {
-        return super.imprimir() + "\nSalary: $sueldo"
+class Empleado(name: String, age: Int, val salary: Double) : Persona(name, age) {
+    override fun print(): String {
+        return super.print() + "\nSalary: $salary"
     }
 
-    fun pagaImpuestos(): String {
-        return if (sueldo > 3000) "Employee $nombre pays taxes" else "Employee $nombre does not pay taxes"
+    fun payTaxes(): String {
+        return if (salary > 3000) "Employee $name pays taxes" else "Employee $name does not pay taxes"
     }
 }
 
-open class Calculadora(val valor1: Double, val valor2: Double) {
+open class Calculator(val valor1: Double, val valor2: Double) {
     var resultado: Double = 0.0
 
-    fun sumar() {
+    fun sum() {
         resultado = valor1 + valor2
     }
 
-    fun restar() {
+    fun substract() {
         resultado = valor1 - valor2
     }
 
-    fun multiplicar() {
+    fun multiply() {
         resultado = valor1 * valor2
     }
 
-    fun dividir() {
+    fun divide() {
         resultado = valor1 / valor2
     }
 
-    fun imprimir(): String {
+    fun print(): String {
         return "Result: $resultado"
     }
 }
 
-class CalculadoraCientifica(valor1: Double, valor2: Double) : Calculadora(valor1, valor2) {
-    fun cuadrado() {
+class ScientificCalculator(valor1: Double, valor2: Double) : Calculator(valor1, valor2) {
+    fun square() {
         resultado = valor1 * valor1
     }
 
-    fun raiz() {
+    fun squareRoot() {
         resultado = sqrt(valor1)
     }
 }
@@ -72,7 +71,7 @@ fun Project138(navController: NavHostController, modifier: Modifier = Modifier) 
         // Button to trigger Persona details
         Button(onClick = {
             val persona1 = Persona("Jose", 22)
-            personaOutput = "Person Data:\n${persona1.imprimir()}"
+            personaOutput = "Person Data:\n${persona1.print()}"
         }) {
             Text(text = "Show Person Info", fontSize = 20.sp)
         }
@@ -81,7 +80,7 @@ fun Project138(navController: NavHostController, modifier: Modifier = Modifier) 
         // Button to trigger Empleado details
         Button(onClick = {
             val empleado1 = Empleado("Ana", 30, 5000.0)
-            empleadoOutput = "Employee Data:\n${empleado1.imprimir()}\n${empleado1.pagaImpuestos()}"
+            empleadoOutput = "Employee Data:\n${empleado1.print()}\n${empleado1.payTaxes()}"
         }) {
             Text(text = "Show Employee Info", fontSize = 20.sp)
         }
@@ -89,9 +88,9 @@ fun Project138(navController: NavHostController, modifier: Modifier = Modifier) 
 
         // Button to trigger Calculadora operations
         Button(onClick = {
-            val calculadora1 = Calculadora(10.0, 2.0)
-            calculadora1.sumar()
-            calculadoraOutput = "Calculator (sum of two numbers):\n${calculadora1.imprimir()}"
+            val calculator1 = Calculator(10.0, 2.0)
+            calculator1.sum()
+            calculadoraOutput = "Calculator (sum of two numbers):\n${calculator1.print()}"
         }) {
             Text(text = "Show Calculator Info", fontSize = 20.sp)
         }
@@ -99,15 +98,15 @@ fun Project138(navController: NavHostController, modifier: Modifier = Modifier) 
 
         // Button to trigger Calculadora Científica operations
         Button(onClick = {
-            val calculadoraCientifica1 = CalculadoraCientifica(10.0, 2.0)
-            calculadoraCientifica1.sumar()
-            calculadoraCientifica1.cuadrado()
-            calculadoraCientifica1.raiz()
+            val calculadoraCientifica1 = ScientificCalculator(10.0, 2.0)
+            calculadoraCientifica1.sum()
+            calculadoraCientifica1.square()
+            calculadoraCientifica1.squareRoot()
             calculadoraCientificaOutput = """
                 Scientific Calculator:
-                Sum: ${calculadoraCientifica1.imprimir()}
-                Square: ${calculadoraCientifica1.imprimir()}
-                Square root: ${calculadoraCientifica1.imprimir()}
+                Sum: ${calculadoraCientifica1.print()}
+                Square: ${calculadoraCientifica1.print()}
+                Square root: ${calculadoraCientifica1.print()}
             """.trimIndent()
         }) {
             Text(text = "Show Scientific Calculator Info", fontSize = 20.sp)
