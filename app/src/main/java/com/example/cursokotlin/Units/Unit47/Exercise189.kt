@@ -81,8 +81,8 @@ fun Project189(modifier: Modifier = Modifier, navController: NavHostController) 
                     isSimulating = true
                     bolillero = generateDrum()
                     simulateDrawing(
-                        carton = carton,
-                        bolillero = bolillero,
+                        cardboard = carton,
+                        bobbin = bolillero,
                         onNumberDrawn = { number, attempts, matches ->
                             drawnNumbers = drawnNumbers + number
                             if (matches == 6) {
@@ -185,20 +185,20 @@ private fun generateDrum(): MutableSet<Int> {
 }
 
 private suspend fun simulateDrawing(
-    carton: Set<Int>,
-    bolillero: Set<Int>,
+    cardboard: Set<Int>,
+    bobbin: Set<Int>,
     onNumberDrawn: (number: Int, attempts: Int, matches: Int) -> Unit
 ) {
     var matches = 0
     var attempts = 0
 
-    for (number in bolillero) {
+    for (number in bobbin) {
         attempts++
         delay(500) // Add delay for visual effect
 
         onNumberDrawn(number, attempts, matches)
 
-        if (number in carton) {
+        if (number in cardboard) {
             matches++
             if (matches == 6) break
         }

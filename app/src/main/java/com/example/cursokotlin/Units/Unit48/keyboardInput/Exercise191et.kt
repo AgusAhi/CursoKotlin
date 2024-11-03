@@ -1,7 +1,7 @@
-package com.example.cursokotlin.Units.Unit47.entradateclado
+package com.example.cursokotlin.Units.Unit48.entradateclado
 
 class ComposableInput {
-    fun retornarInt(value: String): Int? {
+    fun returnInt(value: String): Int? {
         return try {
             value.toInt()
         } catch (e: NumberFormatException) {
@@ -9,7 +9,7 @@ class ComposableInput {
         }
     }
 
-    fun retornarDouble(value: String): Double? {
+    fun returnDouble(value: String): Double? {
         return try {
             value.toDouble()
         } catch (e: NumberFormatException) {
@@ -17,7 +17,7 @@ class ComposableInput {
         }
     }
 
-    fun retornarFloat(value: String): Float? {
+    fun returnFloat(value: String): Float? {
         return try {
             value.toFloat()
         } catch (e: NumberFormatException) {
@@ -26,17 +26,17 @@ class ComposableInput {
     }
 
     fun validateIntInput(value: String, onResult: (Int?) -> Unit) {
-        val result = retornarInt(value)
+        val result = returnInt(value)
         onResult(result)
     }
 
     fun validateDoubleInput(value: String, onResult: (Double?) -> Unit) {
-        val result = retornarDouble(value)
+        val result = returnDouble(value)
         onResult(result)
     }
 
     fun validateFloatInput(value: String, onResult: (Float?) -> Unit) {
-        val result = retornarFloat(value)
+        val result = returnFloat(value)
         onResult(result)
     }
 }

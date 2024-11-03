@@ -25,7 +25,13 @@ fun Project131(modifier: Modifier = Modifier, navController: NavHostController) 
 
     fun runDemo() {
         val card1 = Card(CardSuit.CLUB, 4)
+        val card2 = Card(CardSuit.DIAMOND, 10)
+        val card3 = Card(CardSuit.SPADE, 7)
+        val card4 = Card(CardSuit.HEART, 3)
         outputText = card1.print()
+        outputText += "\n" + card2.print()
+        outputText += "\n" + card3.print()
+        outputText += "\n" + card4.print()
     }
 
     Column(

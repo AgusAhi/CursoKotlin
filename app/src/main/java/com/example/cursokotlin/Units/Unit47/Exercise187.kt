@@ -11,7 +11,7 @@ import androidx.navigation.NavHostController
 @Composable
 fun Project187(modifier: Modifier = Modifier, navController: NavHostController) {
     var outputText by remember { mutableStateOf("") }
-    var conjunto1 by remember { mutableStateOf(mutableSetOf(2, 7, 20, 150, 3)) }
+    var set by remember { mutableStateOf(setOf(2, 7, 20, 150, 3)) }
 
     Column(
         modifier = modifier
@@ -21,24 +21,28 @@ fun Project187(modifier: Modifier = Modifier, navController: NavHostController) 
     ) {
         // Display current set content
         Text("Current Set Content:")
-        Text(conjunto1.joinToString(" "))
+        Text(set.joinToString(" "))
 
         // Display set size
-        Text("Set Size: ${conjunto1.size}")
+        Text("Set Size: ${set.size}")
 
         // Button to add 500
         Button(onClick = {
-            conjunto1.add(500)
-            updateOutput(conjunto1) { "Added 500 to the set:\n${conjunto1.joinToString(" ")}" }
+            set = set.toMutableSet().apply { add(500) }
+            outputText = buildString {
+                appendLine("Added 500 to the set:")
+                appendLine(set.joinToString(" "))
+            }
         }) {
             Text("Add 500")
         }
 
         // Check if 500 exists
         Button(onClick = {
-            updateOutput(conjunto1) {
-                if (500 in conjunto1) "500 is in the set"
-                else "500 is not in the set"
+            outputText = buildString {
+                appendLine(if (500 in set) "500 is in the set" else "500 is not in the set")
+                appendLine("\nCurrent set content:")
+                appendLine(set.joinToString(" "))
             }
         }) {
             Text("Check for 500")
@@ -46,16 +50,23 @@ fun Project187(modifier: Modifier = Modifier, navController: NavHostController) 
 
         // Remove 500
         Button(onClick = {
-            conjunto1.remove(500)
-            updateOutput(conjunto1) { "Removed 500 from the set:\n${conjunto1.joinToString(" ")}" }
+            set = set.toMutableSet().apply { remove(500) }
+            outputText = buildString {
+                appendLine("Removed 500 from the set:")
+                appendLine(set.joinToString(" "))
+            }
         }) {
             Text("Remove 500")
         }
 
         // Count elements >= 10
         Button(onClick = {
-            val count = conjunto1.count { it >= 10 }
-            updateOutput(conjunto1) { "Elements greater than or equal to 10: $count" }
+            val count = set.count { it >= 10 }
+            outputText = buildString {
+                appendLine("Elements greater than or equal to 10: $count")
+                appendLine("\nCurrent set content:")
+                appendLine(set.joinToString(" "))
+            }
         }) {
             Text("Count Elements ≥ 10")
         }
@@ -65,16 +76,5 @@ fun Project187(modifier: Modifier = Modifier, navController: NavHostController) 
             text = outputText,
             modifier = Modifier.padding(top = 16.dp)
         )
-    }
-}
-
-private fun updateOutput(
-    conjunto1: MutableSet<Int>,
-    textProvider: () -> String
-): String {
-    return buildString {
-        appendLine(textProvider())
-        appendLine("\nCurrent set content:")
-        appendLine(conjunto1.joinToString(" "))
     }
 }

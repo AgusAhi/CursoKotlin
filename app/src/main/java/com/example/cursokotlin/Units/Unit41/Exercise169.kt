@@ -16,7 +16,7 @@ fun Project169(
 ) {
     var documentoInput by remember { mutableStateOf("") }
     var resultMessage by remember { mutableStateOf("") }
-    val curso1 = remember { Curso() }
+    val course1 = remember { Course() }
 
     Column(
         modifier = modifier
@@ -45,7 +45,7 @@ fun Project169(
             onClick = {
                 val documento = documentoInput.toIntOrNull()
                 if (documento != null) {
-                    resultMessage = if (documento in curso1) {
+                    resultMessage = if (documento in course1) {
                         "The student is registered in the course"
                     } else {
                         "The student is not registered in the course"
@@ -79,7 +79,7 @@ fun Project169(
                     text = "Registered Students:",
                     style = MaterialTheme.typography.titleMedium
                 )
-                curso1.alumnos.forEach { alumno ->
+                course1.students.forEach { alumno ->
                     Text("${alumno.nombre} (ID: ${alumno.documento})")
                 }
             }

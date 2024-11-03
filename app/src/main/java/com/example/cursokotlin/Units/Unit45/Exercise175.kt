@@ -14,7 +14,8 @@ fun Project175(
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
-    var edades by remember { mutableStateOf(mutableListOf(23, 67, 12, 35, 12)) }
+    // Changed to mutableStateListOf for proper state management
+    var ages = remember { mutableStateListOf(23, 67, 12, 35, 12) }
     var operationLog by remember { mutableStateOf("Initial list created") }
 
     Column(
@@ -41,7 +42,7 @@ fun Project175(
                     style = MaterialTheme.typography.titleMedium
                 )
                 Text(
-                    text = if (edades.isEmpty()) "List is empty" else edades.toString(),
+                    text = if (ages.isEmpty()) "List is empty" else ages.toString(),
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
@@ -54,10 +55,12 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        edades[0] = 60
-                        operationLog = "Modified first age to 60"
+                        if (ages.isNotEmpty()) {
+                            ages[0] = 60
+                            operationLog = "Modified first age to 60"
+                        }
                     },
-                    enabled = edades.isNotEmpty(),
+                    enabled = ages.isNotEmpty(),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Change First Age to 60")
@@ -67,9 +70,9 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        operationLog = "Average age: ${edades.average()}"
+                        operationLog = "Average age: ${ages.average()}"
                     },
-                    enabled = edades.isNotEmpty(),
+                    enabled = ages.isNotEmpty(),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Calculate Average Age")
@@ -79,7 +82,7 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        edades.add(50)
+                        ages.add(50)
                         operationLog = "Added 50 to the end"
                     },
                     modifier = Modifier.fillMaxWidth()
@@ -91,7 +94,7 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        edades.add(0, 17)
+                        ages.add(0, 17)
                         operationLog = "Added 17 at the beginning"
                     },
                     modifier = Modifier.fillMaxWidth()
@@ -103,12 +106,12 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        if (edades.isNotEmpty()) {
-                            edades.removeAt(0)
+                        if (ages.isNotEmpty()) {
+                            ages.removeAt(0)
                             operationLog = "Removed first age"
                         }
                     },
-                    enabled = edades.isNotEmpty(),
+                    enabled = ages.isNotEmpty(),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Remove First Age")
@@ -118,10 +121,10 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        val count = edades.count { it >= 18 }
+                        val count = ages.count { it >= 18 }
                         operationLog = "Adults (18+): $count"
                     },
-                    enabled = edades.isNotEmpty(),
+                    enabled = ages.isNotEmpty(),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Count Adults (18+)")
@@ -131,10 +134,10 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        edades.removeAll { it == 12 }
+                        ages.removeAll { it == 12 }
                         operationLog = "Removed all ages of 12"
                     },
-                    enabled = edades.isNotEmpty(),
+                    enabled = ages.isNotEmpty(),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Remove All Ages of 12")
@@ -144,10 +147,10 @@ fun Project175(
             item {
                 Button(
                     onClick = {
-                        edades.clear()
+                        ages.clear()
                         operationLog = "Cleared all ages"
                     },
-                    enabled = edades.isNotEmpty(),
+                    enabled = ages.isNotEmpty(),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Clear List")

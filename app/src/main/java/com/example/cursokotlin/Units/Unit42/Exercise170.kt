@@ -8,12 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-fun sumar(vararg numeros: Int): Int {
-    var suma = 0
-    for(elemento in numeros) {
-        suma += elemento
+fun sum(vararg numbers: Int): Int {
+    var sum = 0
+    for(element in numbers) {
+        sum += element
     }
-    return suma
+    return sum
 }
 
 @Composable
@@ -32,7 +32,7 @@ fun Project170(
     ) {
         Button(
             onClick = {
-                val total = sumar(10, 20, 30, 40, 50)
+                val total = sum(10, 20, 30, 40, 50)
                 result = "Sum Result: $total"
             }
         ) {

@@ -1,11 +1,14 @@
 package com.example.cursokotlin.Units.Unit30
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
@@ -24,22 +27,46 @@ enum class Countries(val population: Int) {
 @Composable
 fun Project133(modifier: Modifier = Modifier, navController: NavHostController) {
     var outputText by remember { mutableStateOf("") }
+    val scrollState = rememberScrollState()
 
     fun runDemo() {
-        val country1 = Countries.BRAZIL
-        outputText = "Country: $country1\nPopulation: ${country1.population}"
+        outputText = buildString {
+            Countries.values().forEach { country ->
+                if (isNotEmpty()) {
+                    append("\n\n")
+                }
+                append("Country: ${country.name}")
+                append("\nPopulation: ${country.population}")
+            }
+        }
     }
 
     Column(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button(onClick = { runDemo() }) {
+        Button(
+            onClick = { runDemo() },
+            modifier = Modifier.padding(bottom = 16.dp)
+        ) {
             Text("Show Country Info")
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(text = outputText)
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(scrollState)
+                .padding(8.dp)
+        ) {
+            Text(
+                text = outputText,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
     }
 
     // Run the demo automatically when the composable is first created

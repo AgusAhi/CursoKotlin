@@ -20,7 +20,7 @@ fun Project149(
     var result by remember { mutableStateOf("") }
 
     // Operation function
-    fun operar(v1: Int, v2: Int, fn: (Int, Int) -> Int): Int {
+    fun operate(v1: Int, v2: Int, fn: (Int, Int) -> Int): Int {
         return fn(v1, v2)
     }
 
@@ -56,7 +56,7 @@ fun Project149(
             Button(onClick = {
                 val v1 = firstNumber.toIntOrNull() ?: 0
                 val v2 = secondNumber.toIntOrNull() ?: 0
-                val suma = operar(v1, v2) { x, y -> x + y }
+                val suma = operate(v1, v2) { x, y -> x + y }
                 result = "Sum: $suma"
             }) {
                 Text("Add")
@@ -65,7 +65,7 @@ fun Project149(
             Button(onClick = {
                 val v1 = firstNumber.toIntOrNull() ?: 0
                 val v2 = secondNumber.toIntOrNull() ?: 0
-                val resta = operar(v1, v2) { x, y -> x - y }
+                val resta = operate(v1, v2) { x, y -> x - y }
                 result = "Subtract: $resta"
             }) {
                 Text("Subtract")
@@ -74,7 +74,7 @@ fun Project149(
             Button(onClick = {
                 val v1 = firstNumber.toIntOrNull() ?: 0
                 val v2 = secondNumber.toIntOrNull() ?: 0
-                val power = operar(v1, v2) { x, y ->
+                val power = operate(v1, v2) { x, y ->
                     var valor = 1
                     for(i in 1..y) valor *= x
                     valor

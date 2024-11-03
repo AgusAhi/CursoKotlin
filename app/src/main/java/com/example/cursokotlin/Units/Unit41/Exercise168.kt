@@ -9,17 +9,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-data class Alumno(val documento: Int, val nombre: String)
+data class Student(val documento: Int, val nombre: String)
 
-class Curso {
-    val alumnos = arrayOf(
-        Alumno(123456, "Marcos"),
-        Alumno(666666, "Ana"),
-        Alumno(777777, "Luis")
+class Course {
+    val students = arrayOf(
+        Student(123456, "Marcos"),
+        Student(666666, "Ana"),
+        Student(777777, "Luis")
     )
 
     operator fun contains(documento: Int): Boolean {
-        return alumnos.any { documento == it.documento }
+        return students.any { documento == it.documento }
     }
 }
 
@@ -29,7 +29,7 @@ fun Project168(
     navController: NavHostController
 ) {
     var checkResult by remember { mutableStateOf("") }
-    val curso1 = remember { Curso() }
+    val course1 = remember { Course() }
 
     Column(
         modifier = modifier
@@ -40,7 +40,7 @@ fun Project168(
     ) {
         Button(
             onClick = {
-                checkResult = if (123456 in curso1) {
+                checkResult = if (123456 in course1) {
                     "The student Marcos is registered in the course"
                 } else {
                     "The student Marcos is not registered in the course"

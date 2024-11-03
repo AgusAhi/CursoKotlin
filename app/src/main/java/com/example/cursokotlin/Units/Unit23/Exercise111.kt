@@ -17,9 +17,10 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun Project111(navController: NavHostController) {
-    var studentName by remember { mutableStateOf("") } // For storing student's name
-    var studentGrade by remember { mutableStateOf("") } // For storing student's grade
-    var students by remember { mutableStateOf(mutableListOf<Student>()) } // List of students
+    var studentName by remember { mutableStateOf("") }
+    var studentGrade by remember { mutableStateOf("") }
+    // Changed to use mutableStateListOf instead of mutableStateOf(mutableListOf())
+    var students = remember { mutableStateListOf<Student>() }
 
     Column(
         modifier = Modifier
@@ -27,7 +28,6 @@ fun Project111(navController: NavHostController) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Input field for student's name
         OutlinedTextField(
             value = studentName,
             onValueChange = { studentName = it },
@@ -35,7 +35,6 @@ fun Project111(navController: NavHostController) {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Input field for student's grade
         OutlinedTextField(
             value = studentGrade,
             onValueChange = { studentGrade = it },
@@ -43,7 +42,6 @@ fun Project111(navController: NavHostController) {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Button to add student
         Button(
             onClick = {
                 val grade = studentGrade.toIntOrNull()
@@ -59,24 +57,25 @@ fun Project111(navController: NavHostController) {
             Text("Add Student")
         }
 
-        // Display the list of students
-        LazyColumn {
+        // Added spacing between list and inputs
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Enhanced the list display with better formatting
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
             items(students) { student ->
-                Column(
+                Text(
+                    text = "Name: ${student.name}, Grade: ${student.grade}, Status: ${student.getStatus()}",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 8.dp)
-                ) {
-                    Text("Student: ${student.name}")
-                    Text("Grade: ${student.grade}")
-                    Text("Status: ${student.getStatus()}")
-                }
+                        .padding(vertical = 4.dp)
+                )
             }
         }
     }
 }
 
-// Student class with properties and functions
 data class Student(var name: String, var grade: Int) {
     fun getStatus(): String {
         return if (grade >= 4) "REGULAR" else "NOT REGULAR"

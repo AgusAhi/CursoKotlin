@@ -19,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 fun Project112( modifier: Modifier = Modifier, navController: NavHostController) {
     var personName by remember { mutableStateOf("") } // For storing person's name
     var personAge by remember { mutableStateOf("") }  // For storing person's age
-    var persons by remember { mutableStateOf(mutableListOf<Person>()) } // List of persons
+    val persons = remember { mutableStateListOf<Person>() } // For storing list of persons
 
     Column(
         modifier = Modifier

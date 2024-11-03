@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-fun cantidadMayores(vararg edades: Int) = edades.count { it >= 18 }
+fun adultsQuantity(vararg ages: Int) = ages.count { it >= 18 }
 
 @Composable
 fun Project172(
@@ -35,7 +35,7 @@ fun Project172(
 
         Button(
             onClick = {
-                val count = cantidadMayores(*edades)
+                val count = adultsQuantity(*edades)
                 result = "Number of adults (18+): $count"
             }
         ) {

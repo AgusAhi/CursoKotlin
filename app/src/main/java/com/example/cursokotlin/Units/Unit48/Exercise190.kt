@@ -45,7 +45,7 @@ fun Project190(modifier: Modifier = Modifier, navController: NavHostController) 
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Text(
-                    text = "La suma es $sumResult",
+                    text = "The addition is $sumResult",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.secondary
                 )
@@ -70,7 +70,7 @@ fun Project190(modifier: Modifier = Modifier, navController: NavHostController) 
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Text(
-                    text = "La resta es $subtractResult",
+                    text = "La subtraction is $subtractResult",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.secondary
                 )

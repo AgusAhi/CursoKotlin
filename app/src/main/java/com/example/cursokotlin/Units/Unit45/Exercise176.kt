@@ -14,9 +14,7 @@ fun Project176(
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
-    var diceRolls by remember {
-        mutableStateOf(MutableList(20) { ((Math.random() * 6) + 1).toInt() })
-    }
+    var diceRolls by remember { mutableStateOf(MutableList(20) { ((Math.random() * 6) + 1).toInt() }) }
     var numberOfOnes by remember { mutableStateOf(0) }
 
     Column(
@@ -80,10 +78,11 @@ fun Project176(
             }
         }
 
-        // Button to remove sixes
+        // Button to remove sixes - FIXED VERSION
         Button(
             onClick = {
-                diceRolls.removeAll { it == 6 }
+                diceRolls = diceRolls.filter { it != 6 }.toMutableList()
+                numberOfOnes = diceRolls.count { it == 1 }
             },
             modifier = Modifier.fillMaxWidth()
         ) {

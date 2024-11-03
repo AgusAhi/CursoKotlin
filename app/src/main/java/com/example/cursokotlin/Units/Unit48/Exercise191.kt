@@ -1,4 +1,4 @@
-package com.example.cursokotlin.Units.Unit47
+package com.example.cursokotlin.Units.Unit48
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -9,13 +9,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.cursokotlin.Units.Unit47.entradateclado.ComposableInput
+import com.example.cursokotlin.Units.Unit48.entradateclado.ComposableInput
 
 @Composable
 fun Project191(modifier: Modifier = Modifier, navController: NavHostController) {
     var firstNumber by remember { mutableStateOf("") }
     var secondNumber by remember { mutableStateOf("") }
-    var result by remember { mutableStateOf<Int?>(null) }
+    var selectedType by remember { mutableStateOf(NumberType.INTEGER) }
+    var result by remember { mutableStateOf<String?>(null) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
     val inputHandler = remember { ComposableInput() }
@@ -32,6 +33,24 @@ fun Project191(modifier: Modifier = Modifier, navController: NavHostController) 
             style = MaterialTheme.typography.headlineMedium
         )
 
+        // Number type selector
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            NumberType.values().forEach { type ->
+                FilterChip(
+                    selected = selectedType == type,
+                    onClick = {
+                        selectedType = type
+                        result = null
+                        errorMessage = null
+                    },
+                    label = { Text(type.name.lowercase().capitalize()) }
+                )
+            }
+        }
+
         // First number input
         OutlinedTextField(
             value = firstNumber,
@@ -40,8 +59,8 @@ fun Project191(modifier: Modifier = Modifier, navController: NavHostController) 
                 errorMessage = null
                 result = null
             },
-            label = { Text("Ingrese primer valor:") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text("Enter the first value:") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
             isError = errorMessage != null && firstNumber.isEmpty(),
             modifier = Modifier.fillMaxWidth()
         )
@@ -54,8 +73,8 @@ fun Project191(modifier: Modifier = Modifier, navController: NavHostController) 
                 errorMessage = null
                 result = null
             },
-            label = { Text("Ingrese segundo valor:") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text("Enter the second value:") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
             isError = errorMessage != null && secondNumber.isEmpty(),
             modifier = Modifier.fillMaxWidth()
         )
@@ -67,6 +86,7 @@ fun Project191(modifier: Modifier = Modifier, navController: NavHostController) 
                     inputHandler,
                     firstNumber,
                     secondNumber,
+                    selectedType,
                     onResult = { newResult ->
                         result = newResult
                     },
@@ -96,7 +116,7 @@ fun Project191(modifier: Modifier = Modifier, navController: NavHostController) 
                         style = MaterialTheme.typography.titleMedium
                     )
                     Text(
-                        text = "La suma es $it",
+                        text = "The sum is $it",
                         style = MaterialTheme.typography.headlineSmall,
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -123,39 +143,59 @@ fun Project191(modifier: Modifier = Modifier, navController: NavHostController) 
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Available Input Types:",
+                    text = "Input Format Examples:",
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
-                Text("• Integer (whole numbers)")
-                Text("• Double (decimal numbers)")
-                Text("• Float (decimal numbers)")
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = "Try entering different number types!",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.secondary
-                )
+                Text("• Integer: 42")
+                Text("• Double: 42.5")
+                Text("• Float: 42.5f")
             }
         }
     }
+}
+
+enum class NumberType {
+    INTEGER,
+    DOUBLE,
+    FLOAT
 }
 
 private fun calculateSum(
     inputHandler: ComposableInput,
     firstNumber: String,
     secondNumber: String,
-    onResult: (Int) -> Unit,
+    type: NumberType,
+    onResult: (String) -> Unit,
     onError: (String) -> Unit
 ) {
-    val num1 = inputHandler.retornarInt(firstNumber)
-    val num2 = inputHandler.retornarInt(secondNumber)
-
-    when {
-        num1 == null -> onError("Please enter a valid first number")
-        num2 == null -> onError("Please enter a valid second number")
-        else -> onResult(num1 + num2)
+    when (type) {
+        NumberType.INTEGER -> {
+            val num1 = inputHandler.returnInt(firstNumber)
+            val num2 = inputHandler.returnInt(secondNumber)
+            when {
+                num1 == null -> onError("Please enter a valid first integer")
+                num2 == null -> onError("Please enter a valid second integer")
+                else -> onResult((num1 + num2).toString())
+            }
+        }
+        NumberType.DOUBLE -> {
+            val num1 = inputHandler.returnDouble(firstNumber)
+            val num2 = inputHandler.returnDouble(secondNumber)
+            when {
+                num1 == null -> onError("Please enter a valid first decimal number")
+                num2 == null -> onError("Please enter a valid second decimal number")
+                else -> onResult(String.format("%.2f", num1 + num2))
+            }
+        }
+        NumberType.FLOAT -> {
+            val num1 = inputHandler.returnFloat(firstNumber)
+            val num2 = inputHandler.returnFloat(secondNumber)
+            when {
+                num1 == null -> onError("Please enter a valid first decimal number")
+                num2 == null -> onError("Please enter a valid second decimal number")
+                else -> onResult(String.format("%.2f", num1 + num2))
+            }
+        }
     }
 }

@@ -34,7 +34,13 @@ fun Project132(modifier: Modifier = Modifier, navController: NavHostController) 
 
     fun runDemo() {
         val operation1 = Operation(10, 4, OperationType.ADDITION)
+        val operation2 = Operation(8, 2, OperationType.SUBTRACTION)
+        val operation3 = Operation(6, 3, OperationType.MULTIPLICATION)
+        val operation4 = Operation(9, 3, OperationType.DIVISION)
         outputText = operation1.perform()
+        outputText += "\n" + operation2.perform()
+        outputText += "\n" + operation3.perform()
+        outputText += "\n" + operation4.perform()
     }
 
     Column(

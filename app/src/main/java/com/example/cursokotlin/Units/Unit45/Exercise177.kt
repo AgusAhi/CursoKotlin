@@ -28,7 +28,7 @@ fun Project177(
 ) {
     var people by remember {
         mutableStateOf(
-            mutableListOf(
+            listOf(
                 Person("John", 22),
                 Person("Anna", 19),
                 Person("Mark", 12)
@@ -125,7 +125,7 @@ fun Project177(
                     onClick = {
                         newAge.toIntOrNull()?.let { age ->
                             if (newName.isNotBlank() && age >= 0) {
-                                people.add(Person(newName, age))
+                                people = people + Person(newName, age)
                                 newName = ""
                                 newAge = ""
                                 showDialog = false

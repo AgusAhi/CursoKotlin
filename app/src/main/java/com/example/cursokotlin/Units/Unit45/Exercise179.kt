@@ -27,7 +27,7 @@ fun Project179(
 ) {
     var employees by remember {
         mutableStateOf(
-            mutableListOf(
+            listOf(
                 Employee("John", 2000.0),
                 Employee("Anna", 3500.0),
                 Employee("Charles", 1500.0)
@@ -183,7 +183,7 @@ fun Project179(
                     onClick = {
                         newSalary.toDoubleOrNull()?.let { salary ->
                             if (newName.isNotBlank() && salary > 0) {
-                                employees.add(Employee(newName, salary))
+                                employees = employees + Employee(newName, salary)
                                 newName = ""
                                 newSalary = ""
                                 showAddDialog = false

@@ -9,14 +9,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 enum class Operacion {
-    SUMA,
-    PROMEDIO
+    SUM,
+    AVERAGE
 }
 
-fun operar(tipoOperacion: Operacion, vararg arreglo: Int): Int {
-    return when (tipoOperacion) {
-        Operacion.SUMA -> arreglo.sum()
-        Operacion.PROMEDIO -> arreglo.average().toInt()
+fun operate(operationType: Operacion, vararg fix: Int): Int {
+    return when (operationType) {
+        Operacion.SUM -> fix.sum()
+        Operacion.AVERAGE -> fix.average().toInt()
     }
 }
 
@@ -43,7 +43,7 @@ fun Project171(
         // Sum Button
         Button(
             onClick = {
-                val resultado1 = operar(Operacion.SUMA, 10, 20, 30)
+                val resultado1 = operate(Operacion.SUM, 10, 20, 30)
                 sumResult = "The sum is $resultado1"
             }
         ) {
@@ -60,7 +60,7 @@ fun Project171(
         // Average Button
         Button(
             onClick = {
-                val resultado2 = operar(Operacion.PROMEDIO, 10, 20, 30)
+                val resultado2 = operate(Operacion.AVERAGE, 10, 20, 30)
                 avgResult = "The average is $resultado2"
             }
         ) {

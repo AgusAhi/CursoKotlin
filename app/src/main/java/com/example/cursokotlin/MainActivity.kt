@@ -283,7 +283,7 @@ class MainActivity : ComponentActivity() {
                         composable("Unit30") { Unit30(navController = navController) }
                         composable("Project131") { Project131(navController = navController) }
                         composable("Project132") { Project132(navController = navController) }
-                       // composable("Project133") { Project133(navController = navController) } // por hacer
+                        composable("Project133") { Project133(navController = navController) } // por hacer
 
                         // Unit 31
                         composable("Unit31") { Unit31(navController = navController) }
@@ -386,6 +386,9 @@ class MainActivity : ComponentActivity() {
                         composable("Project187") { Project187(navController = navController) }
                         composable("Project188") { Project188(navController = navController) }
                         composable("Project189") { Project189(navController = navController) }
+
+                        // Unit 48
+                        composable("Unit48") { Unit48(navController = navController) }
                         composable("Project190") { Project190(navController = navController) }
                         composable("Project191") { Project191(navController = navController) }
 

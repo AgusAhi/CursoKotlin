@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -12,31 +11,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
-class Persona {
-    var nombre: String = ""
-    var edad: Int = 0
+class Person {
+    var name: String = ""
+    var age: Int = 0
 
-    fun inicializar(nombre: String, edad: Int) {
-        this.nombre = nombre
-        this.edad = edad
+    fun initialize(name: String, age: Int) {
+        this.name = name
+        this.age = age
     }
 
-    fun imprimir() {
-        println("Nombre: $nombre y tiene una edad de $edad")
+    fun print() {
+        println("Name: $name and has an age of $age")
     }
 
-    fun esMayorEdad() {
-        if (edad >= 18)
-            println("Es mayor de edad $nombre")
-        else
-            println("No es mayor de edad $nombre")
+    fun checkIfAdult() {
+        if (age >= 18) {
+            println("$name is an adult")
+        } else {
+            println("$name is not an adult")
+        }
     }
 }
-
 @Composable
-fun Project109(modifier: Modifier = Modifier, navController: NavHostController) {
-    var nombrePersona by remember { mutableStateOf("") }
-    var edadPersona by remember { mutableStateOf("") }
+fun Project109(
+    modifier: Modifier = Modifier,
+    navController: NavHostController? = null
+) {
+    var personName by remember { mutableStateOf("") }
+    var personAge by remember { mutableStateOf("") }
+    var outputMessage by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -45,31 +48,55 @@ fun Project109(modifier: Modifier = Modifier, navController: NavHostController) 
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Enter Persona details:")
+        Text("Enter Person Details:")
+
         OutlinedTextField(
-            value = nombrePersona,
-            onValueChange = { nombrePersona = it },
+            value = personName,
+            onValueChange = { personName = it },
             label = { Text("Enter name") },
             modifier = Modifier.fillMaxWidth()
         )
+
         OutlinedTextField(
-            value = edadPersona,
-            onValueChange = { edadPersona = it },
+            value = personAge,
+            onValueChange = { personAge = it },
             label = { Text("Enter age") },
             modifier = Modifier.fillMaxWidth()
         )
+
         Button(
             onClick = {
-                val age = edadPersona.toIntOrNull() ?: 0
-                val persona = Persona().apply {
-                    inicializar(nombrePersona, age)
+                val age = personAge.toIntOrNull() ?: 0
+                val person = Person().apply {
+                    initialize(personName, age)
                 }
-                persona.imprimir()
-                persona.esMayorEdad()
+                person.print()
+                person.checkIfAdult()
+
+                // Update the output message
+                outputMessage = "Created person: ${person.name}, age: ${person.age}"
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Create Persona")
+            Text("Create Person")
+        }
+
+        // Display the output message
+        if (outputMessage.isNotEmpty()) {
+            Text(outputMessage)
         }
     }
+}
+
+// Main function for testing without Android
+fun main() {
+    val person1 = Person()
+    person1.initialize("John", 12)
+    person1.print()
+    person1.checkIfAdult()
+
+    val person2 = Person()
+    person2.initialize("Anna", 50)
+    person2.print()
+    person2.checkIfAdult()
 }
